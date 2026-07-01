@@ -1,12 +1,12 @@
-package com.teamabnormals.template_mod.core.registry;
+package pantz.enhanced_nature.core.registry;
 
 import com.teamabnormals.blueprint.core.util.registry.ItemSubRegistryHelper;
-import com.teamabnormals.template_mod.core.TemplateMod;
+import pantz.enhanced_nature.core.EnhancedNature;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 
-public class TemplateItems {
-	public static final ItemSubRegistryHelper ITEMS = TemplateMod.REGISTRY_HELPER.getItemSubHelper();
+public class ENItems {
+	public static final ItemSubRegistryHelper ITEMS = EnhancedNature.REGISTRY_HELPER.getItemSubHelper();
 
 	public static final DeferredItem<Item> TEMPLATE_ITEM = ITEMS.createItem("template_item", () -> new Item(new Item.Properties()));
 }

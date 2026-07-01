@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.teamabnormals.template_mod.core.mixin",
+  "package": "com.teamabnormals.enhanced_nature.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "refmap": "template_mod.refmap.json",
