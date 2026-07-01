@@ -4,6 +4,7 @@ import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.config.ModConfig.Type;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -31,7 +32,7 @@ public class EnhancedNature {
 	public static final String MOD_ID = "enhanced_nature";
 	public static final RegistryHelper REGISTRY_HELPER = new RegistryHelper(MOD_ID);
 
-	public EnhancedNature(net.neoforged.bus.api.IEventBus bus, ModContainer container) {
+	public EnhancedNature(IEventBus bus, ModContainer container) {
 		ENBlocks.BLOCKS.register(bus);
 		ENItems.ITEMS.register(bus);
 
