@@ -7,6 +7,4 @@ import net.neoforged.neoforge.registries.DeferredItem;
 
 public class ENItems {
 	public static final ItemSubRegistryHelper ITEMS = EnhancedNature.REGISTRY_HELPER.getItemSubHelper();
-
-	public static final DeferredItem<Item> TEMPLATE_ITEM = ITEMS.createItem("template_item", () -> new Item(new Item.Properties()));
 }

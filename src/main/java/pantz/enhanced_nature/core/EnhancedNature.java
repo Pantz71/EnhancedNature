@@ -4,6 +4,7 @@ import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.neoforged.fml.config.ModConfig.Type;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import pantz.enhanced_nature.core.data.client.ENBlockStateProvider;
@@ -37,6 +38,8 @@ public class EnhancedNature {
 		bus.addListener(this::commonSetup);
 		bus.addListener(this::clientSetup);
 		bus.addListener(this::dataSetup);
+
+        container.registerConfig(Type.COMMON, ENConfig.Common.COMMON_SPEC);
 	}
 
 	private void commonSetup(FMLCommonSetupEvent event) {
