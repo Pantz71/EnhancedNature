@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "enhanced_nature:block/packed_ice_bricks"
+  }
+}
