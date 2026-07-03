@@ -1,5 +1,7 @@
 package pantz.enhanced_nature.core.data.server.tags;
 
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import pantz.enhanced_nature.core.EnhancedNature;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -17,6 +19,10 @@ public class ENItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-
+        this.copy(BlockTags.STAIRS, ItemTags.STAIRS);
+        this.copy(BlockTags.SLABS, ItemTags.SLABS);
+        this.copy(BlockTags.WALLS, ItemTags.WALLS);
+        this.copy(BlockTags.DOORS, ItemTags.DOORS);
+        this.copy(BlockTags.TRAPDOORS, ItemTags.TRAPDOORS);
     }
 }

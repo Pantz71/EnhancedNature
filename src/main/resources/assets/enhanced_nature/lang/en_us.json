@@ -1,0 +1,24 @@
+{
+  "block.enhanced_nature.snow_bricks": "Snow Bricks",
+  "block.enhanced_nature.snow_brick_stairs": "Snow Brick Stairs",
+  "block.enhanced_nature.snow_brick_slab": "Snow Brick Slab",
+  "block.enhanced_nature.snow_brick_wall": "Snow Brick Wall",
+
+  "block.enhanced_nature.packed_ice_bricks": "Packed Ice Bricks",
+  "block.enhanced_nature.packed_ice_brick_stairs": "Packed Ice Brick Stairs",
+  "block.enhanced_nature.packed_ice_brick_slab": "Packed Ice Brick Slab",
+  "block.enhanced_nature.packed_ice_brick_wall": "Packed Ice Brick Wall",
+  "block.enhanced_nature.chiseled_packed_ice_bricks": "Chiseled Packed Ice Bricks",
+
+  "block.enhanced_nature.packed_ice_door": "Packed Ice Door",
+  "block.enhanced_nature.packed_ice_trapdoor": "Packed Ice Trapdoor",
+
+  "block.enhanced_nature.blue_ice_bricks": "Blue Ice Bricks",
+  "block.enhanced_nature.blue_ice_brick_stairs": "Blue Ice Brick Stairs",
+  "block.enhanced_nature.blue_ice_brick_slab": "Blue Ice Brick Slab",
+  "block.enhanced_nature.blue_ice_brick_wall": "Blue Ice Brick Wall",
+  "block.enhanced_nature.chiseled_blue_ice_bricks": "Chiseled Blue Ice Bricks",
+
+  "block.enhanced_nature.blue_ice_door": "Blue Ice Door",
+  "block.enhanced_nature.blue_ice_trapdoor": "Blue Ice Trapdoor"
+}

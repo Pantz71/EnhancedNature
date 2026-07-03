@@ -7,6 +7,9 @@ import pantz.enhanced_nature.core.other.ENProperties;
 import net.minecraft.world.level.block.*;
 import net.neoforged.neoforge.registries.DeferredBlock;
 
+import static net.minecraft.world.item.CreativeModeTabs.*;
+import static net.minecraft.world.item.crafting.Ingredient.of;
+
 public class ENBlocks {
 	public static final BlockSubRegistryHelper BLOCKS = EnhancedNature.REGISTRY_HELPER.getBlockSubHelper();
 
@@ -19,7 +22,7 @@ public class ENBlocks {
     public static final DeferredBlock<Block> PACKED_ICE_BRICK_STAIRS = BLOCKS.createBlock("packed_ice_brick_stairs", () -> new StairBlock(PACKED_ICE_BRICKS.get().defaultBlockState(), ENProperties.ICE_BRICKS));
     public static final DeferredBlock<Block> PACKED_ICE_BRICK_SLAB = BLOCKS.createBlock("packed_ice_brick_slab", () -> new SlabBlock(ENProperties.ICE_BRICKS));
     public static final DeferredBlock<Block> PACKED_ICE_BRICK_WALL = BLOCKS.createBlock("packed_ice_brick_wall", () -> new WallBlock(ENProperties.ICE_BRICKS));
-    public static final DeferredBlock<Block> CHISELED_PACKED_ICE_BRICKS = BLOCKS.createBlock("packed_ice_brick_bricks", () -> new Block(ENProperties.ICE_BRICKS));
+    public static final DeferredBlock<Block> CHISELED_PACKED_ICE_BRICKS = BLOCKS.createBlock("chiseled_packed_ice_bricks", () -> new Block(ENProperties.ICE_BRICKS));
 
     public static final DeferredBlock<Block> PACKED_ICE_DOOR = BLOCKS.createBlock("packed_ice_door", () -> new DoorBlock(ENProperties.ICE, ENProperties.ICE_BRICKS));
     public static final DeferredBlock<Block> PACKED_ICE_TRAPDOOR = BLOCKS.createBlock("packed_ice_trapdoor", () -> new TrapDoorBlock(ENProperties.ICE, ENProperties.ICE_BRICKS));
@@ -28,12 +31,15 @@ public class ENBlocks {
     public static final DeferredBlock<Block> BLUE_ICE_BRICK_STAIRS = BLOCKS.createBlock("blue_ice_brick_stairs", () -> new StairBlock(PACKED_ICE_BRICKS.get().defaultBlockState(), ENProperties.ICE_BRICKS));
     public static final DeferredBlock<Block> BLUE_ICE_BRICK_SLAB = BLOCKS.createBlock("blue_ice_brick_slab", () -> new SlabBlock(ENProperties.ICE_BRICKS));
     public static final DeferredBlock<Block> BLUE_ICE_BRICK_WALL = BLOCKS.createBlock("blue_ice_brick_wall", () -> new WallBlock(ENProperties.ICE_BRICKS));
-    public static final DeferredBlock<Block> CHISELED_BLUE_ICE_BRICKS = BLOCKS.createBlock("blue_ice_brick_bricks", () -> new Block(ENProperties.ICE_BRICKS));
+    public static final DeferredBlock<Block> CHISELED_BLUE_ICE_BRICKS = BLOCKS.createBlock("chiseled_blue_ice_bricks", () -> new Block(ENProperties.ICE_BRICKS));
 
     public static final DeferredBlock<Block> BLUE_ICE_DOOR = BLOCKS.createBlock("blue_ice_door", () -> new DoorBlock(ENProperties.ICE, ENProperties.ICE_BRICKS));
     public static final DeferredBlock<Block> BLUE_ICE_TRAPDOOR = BLOCKS.createBlock("blue_ice_trapdoor", () -> new TrapDoorBlock(ENProperties.ICE, ENProperties.ICE_BRICKS));
 
     public static void setupTabs() {
-		CreativeModeTabContentsPopulator.mod(EnhancedNature.MOD_ID);
+		CreativeModeTabContentsPopulator.mod(EnhancedNature.MOD_ID)
+                .tab(BUILDING_BLOCKS)
+                .addItemsBefore(of(Blocks.NETHERRACK), () -> Blocks.SNOW_BLOCK, SNOW_BRICKS, SNOW_BRICK_STAIRS, SNOW_BRICK_SLAB, SNOW_BRICK_WALL, () -> Blocks.PACKED_ICE, PACKED_ICE_BRICKS, PACKED_ICE_BRICK_STAIRS, PACKED_ICE_BRICK_SLAB, PACKED_ICE_BRICK_WALL, CHISELED_PACKED_ICE_BRICKS, PACKED_ICE_DOOR, PACKED_ICE_TRAPDOOR,
+                        () -> Blocks.BLUE_ICE, BLUE_ICE_BRICKS, BLUE_ICE_BRICK_STAIRS, BLUE_ICE_BRICK_SLAB, BLUE_ICE_BRICK_WALL, CHISELED_BLUE_ICE_BRICKS, BLUE_ICE_DOOR, BLUE_ICE_TRAPDOOR);
 	}
 }

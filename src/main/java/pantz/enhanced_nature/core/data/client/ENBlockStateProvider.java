@@ -4,6 +4,9 @@ import com.teamabnormals.blueprint.core.data.client.BlueprintBlockStateProvider;
 import pantz.enhanced_nature.core.EnhancedNature;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import pantz.enhanced_nature.core.other.ENBlockFamilies;
+
+import static pantz.enhanced_nature.core.registry.ENBlocks.*;
 
 public class ENBlockStateProvider extends BlueprintBlockStateProvider {
     public ENBlockStateProvider(PackOutput output, ExistingFileHelper helper) {
@@ -12,6 +15,14 @@ public class ENBlockStateProvider extends BlueprintBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        blockFamily(ENBlockFamilies.SNOW_BRICKS_FAMILY);
 
+        blockFamily(ENBlockFamilies.PACKED_ICE_BRICKS_FAMILY);
+        block(CHISELED_PACKED_ICE_BRICKS);
+        doorBlocks(PACKED_ICE_DOOR.get(), PACKED_ICE_TRAPDOOR.get());
+
+        blockFamily(ENBlockFamilies.BLUE_ICE_BRICKS_FAMILY);
+        block(CHISELED_BLUE_ICE_BRICKS);
+        doorBlocks(BLUE_ICE_DOOR.get(), BLUE_ICE_TRAPDOOR.get());
     }
 }
