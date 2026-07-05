@@ -24,5 +24,13 @@ public class ENBlockStateProvider extends BlueprintBlockStateProvider {
         blockFamily(ENBlockFamilies.BLUE_ICE_BRICKS_FAMILY);
         block(CHISELED_BLUE_ICE_BRICKS);
         doorBlocks(BLUE_ICE_DOOR.get(), BLUE_ICE_TRAPDOOR.get());
+
+        blockFamily(ENBlockFamilies.LIMESTONE_FAMILY);
+        logBlock(LIMESTONE_PILLAR);
+        blockFamily(ENBlockFamilies.POLISHED_LIMESTONE_FAMILY);
+        block(CHISELED_POLISHED_LIMESTONE);
+        blockFamily(ENBlockFamilies.LIMESTONE_BRICKS_FAMILY);
+        blockFamily(ENBlockFamilies.LIMESTONE_TILES_FAMILY);
+
     }
 }

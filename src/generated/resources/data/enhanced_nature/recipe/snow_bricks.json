@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "B": {
+    "#": {
       "item": "minecraft:stone_bricks"
     },
     "S": {
@@ -10,11 +10,12 @@
     }
   },
   "pattern": [
-    "BS",
-    "SB"
+    "###",
+    "#S#",
+    "###"
   ],
   "result": {
-    "count": 1,
+    "count": 8,
     "id": "enhanced_nature:snow_bricks"
   }
 }

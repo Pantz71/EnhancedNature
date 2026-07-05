@@ -20,5 +20,27 @@
   "block.enhanced_nature.chiseled_blue_ice_bricks": "Chiseled Blue Ice Bricks",
 
   "block.enhanced_nature.blue_ice_door": "Blue Ice Door",
-  "block.enhanced_nature.blue_ice_trapdoor": "Blue Ice Trapdoor"
+  "block.enhanced_nature.blue_ice_trapdoor": "Blue Ice Trapdoor",
+
+  "block.enhanced_nature.limestone": "Limestone",
+  "block.enhanced_nature.limestone_stairs": "Limestone Stairs",
+  "block.enhanced_nature.limestone_slab": "Limestone Slab",
+  "block.enhanced_nature.limestone_wall": "Limestone Wall",
+  "block.enhanced_nature.limestone_pillar": "Limestone Pillar",
+
+  "block.enhanced_nature.polished_limestone": "Polished Limestone",
+  "block.enhanced_nature.polished_limestone_stairs": "Polished Limestone Stairs",
+  "block.enhanced_nature.polished_limestone_slab": "Polished Limestone Slab",
+  "block.enhanced_nature.polished_limestone_wall": "Polished Limestone Wall",
+  "block.enhanced_nature.chiseled_polished_limestone": "Chiseled Polished Limestone",
+
+  "block.enhanced_nature.limestone_bricks": "Limestone Bricks",
+  "block.enhanced_nature.limestone_brick_stairs": "Limestone Brick Stairs",
+  "block.enhanced_nature.limestone_brick_slab": "Limestone Brick Slab",
+  "block.enhanced_nature.limestone_brick_wall": "Limestone Brick Wall",
+
+  "block.enhanced_nature.limestone_tiles": "Limestone Tiles",
+  "block.enhanced_nature.limestone_tile_stairs": "Limestone Tile Stairs",
+  "block.enhanced_nature.limestone_tile_slab": "Limestone Tile Slab",
+  "block.enhanced_nature.limestone_tile_wall": "Limestone Tile Wall"
 }

@@ -51,14 +51,19 @@ public class ENLootTableProvider extends LootTableProvider {
             for (DeferredBlock<?> block : new DeferredBlock[]{
                     SNOW_BRICKS, SNOW_BRICK_STAIRS, SNOW_BRICK_WALL,
                     PACKED_ICE_BRICKS, PACKED_ICE_BRICK_STAIRS, PACKED_ICE_BRICK_WALL, CHISELED_PACKED_ICE_BRICKS, PACKED_ICE_TRAPDOOR,
-                    BLUE_ICE_BRICKS, BLUE_ICE_BRICK_STAIRS, BLUE_ICE_BRICK_WALL, CHISELED_BLUE_ICE_BRICKS, BLUE_ICE_TRAPDOOR
+                    BLUE_ICE_BRICKS, BLUE_ICE_BRICK_STAIRS, BLUE_ICE_BRICK_WALL, CHISELED_BLUE_ICE_BRICKS, BLUE_ICE_TRAPDOOR,
+                    LIMESTONE, LIMESTONE_STAIRS, LIMESTONE_WALL, LIMESTONE_PILLAR,
+                    POLISHED_LIMESTONE, POLISHED_LIMESTONE_STAIRS, POLISHED_LIMESTONE_WALL, CHISELED_POLISHED_LIMESTONE,
+                    LIMESTONE_BRICKS, LIMESTONE_BRICK_STAIRS, LIMESTONE_BRICK_WALL,
+                    LIMESTONE_TILES, LIMESTONE_TILE_STAIRS, LIMESTONE_TILE_WALL
             }) {
                 this.dropSelf(block.get());
             }
 
             // slab
             for (DeferredBlock<?> block : new DeferredBlock[]{
-                    SNOW_BRICK_SLAB, PACKED_ICE_BRICK_SLAB, BLUE_ICE_BRICK_SLAB
+                    SNOW_BRICK_SLAB, PACKED_ICE_BRICK_SLAB, BLUE_ICE_BRICK_SLAB,
+                    LIMESTONE_SLAB, POLISHED_LIMESTONE_SLAB, LIMESTONE_BRICK_SLAB, LIMESTONE_TILE_SLAB
             }) {
                 this.add(block.get(), this::createSlabItemTable);
             }
