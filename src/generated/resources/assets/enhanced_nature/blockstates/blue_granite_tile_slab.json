@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "enhanced_nature:block/blue_granite_tile_slab"
+    },
+    "type=double": {
+      "model": "enhanced_nature:block/blue_granite_tiles"
+    },
+    "type=top": {
+      "model": "enhanced_nature:block/blue_granite_tile_slab_top"
+    }
+  }
+}

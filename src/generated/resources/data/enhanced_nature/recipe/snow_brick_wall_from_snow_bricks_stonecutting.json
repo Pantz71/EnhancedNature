@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "enhanced_nature:snow_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "enhanced_nature:snow_brick_wall"
+  }
+}

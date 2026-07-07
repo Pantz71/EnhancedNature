@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_granite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "enhanced_nature:blue_granite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "enhanced_nature:blue_granite_stairs_from_blue_granite_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blue_granite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "enhanced_nature:blue_granite_stairs_from_blue_granite_stonecutting"
+    ]
+  }
+}

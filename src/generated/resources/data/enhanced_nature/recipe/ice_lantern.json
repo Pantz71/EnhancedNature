@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:packed_ice"
+    },
+    "i": {
+      "item": "minecraft:torch"
+    }
+  },
+  "pattern": [
+    "III",
+    "IiI",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "enhanced_nature:ice_lantern"
+  }
+}

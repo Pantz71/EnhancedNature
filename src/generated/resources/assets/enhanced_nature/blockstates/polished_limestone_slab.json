@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "enhanced_nature:block/polished_limestone_slab"
+    },
+    "type=double": {
+      "model": "enhanced_nature:block/polished_limestone_slab_double"
+    },
+    "type=top": {
+      "model": "enhanced_nature:block/polished_limestone_slab_top"
+    }
+  }
+}
