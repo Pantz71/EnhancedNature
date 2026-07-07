@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "enhanced_nature:block/limestone_slab"
+    },
+    "type=double": {
+      "model": "enhanced_nature:block/limestone"
+    },
+    "type=top": {
+      "model": "enhanced_nature:block/limestone_slab_top"
+    }
+  }
+}

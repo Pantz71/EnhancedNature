@@ -1,0 +1,38 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "caverns_and_chasms"
+    }
+  ],
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_blue_granite_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "enhanced_nature:blue_granite_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "enhanced_nature:blue_granite_tile_stairs"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_blue_granite_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "enhanced_nature:blue_granite_tile_stairs"
+    ]
+  }
+}

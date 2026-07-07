@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/chiseled_bookshelf_inventory",
+  "textures": {
+    "front": "enhanced_nature:block/chiseled_palm_bookshelf_empty",
+    "side": "enhanced_nature:block/chiseled_palm_bookshelf_side",
+    "top": "enhanced_nature:block/chiseled_palm_bookshelf_top"
+  }
+}

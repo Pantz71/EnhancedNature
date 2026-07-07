@@ -1,0 +1,6 @@
+{
+  "parent": "enhanced_nature:block/chiseled_palm_bookshelf_slot_bottom_right",
+  "textures": {
+    "texture": "enhanced_nature:block/chiseled_palm_bookshelf_occupied"
+  }
+}

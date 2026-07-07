@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/ladder",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "enhanced_nature:block/palm_ladder",
+    "texture": "enhanced_nature:block/palm_ladder"
+  }
+}
