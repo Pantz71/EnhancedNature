@@ -7,6 +7,9 @@ import pantz.enhanced_nature.core.EnhancedNature;
 
 public class ENBlockTags {
 
+    public static final TagKey<Block> PALM_LOGS = blockTag("palm_logs");
+
+
     private static TagKey<Block> blockTag(String name) {
         return TagUtil.blockTag(EnhancedNature.MOD_ID, name);
     }

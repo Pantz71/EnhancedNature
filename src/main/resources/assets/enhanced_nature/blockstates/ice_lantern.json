@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "hanging=false": { "model": "enhanced_nature:block/ice_lantern" },
+    "hanging=true": { "model": "enhanced_nature:block/ice_lantern_hanging" }
+  }
+}

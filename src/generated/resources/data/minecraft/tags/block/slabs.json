@@ -6,6 +6,10 @@
     "enhanced_nature:limestone_slab",
     "enhanced_nature:polished_limestone_slab",
     "enhanced_nature:limestone_brick_slab",
-    "enhanced_nature:limestone_tile_slab"
+    "enhanced_nature:limestone_tile_slab",
+    "enhanced_nature:blue_granite_slab",
+    "enhanced_nature:polished_blue_granite_slab",
+    "enhanced_nature:blue_granite_brick_slab",
+    "enhanced_nature:blue_granite_tile_slab"
   ]
 }

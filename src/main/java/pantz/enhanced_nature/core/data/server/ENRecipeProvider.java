@@ -1,14 +1,18 @@
 package pantz.enhanced_nature.core.data.server;
 
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
+import com.teamabnormals.boatload.core.data.server.BoatloadRecipeProvider;
+import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.BlockFamily.Variant;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import org.jetbrains.annotations.Nullable;
@@ -16,7 +20,9 @@ import pantz.enhanced_nature.core.EnhancedNature;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import pantz.enhanced_nature.core.other.ENBlockFamilies;
-import pantz.enhanced_nature.core.other.ENConstant;
+import pantz.enhanced_nature.core.other.ENConstants;
+import pantz.enhanced_nature.core.other.tags.ENItemTags;
+import pantz.enhanced_nature.integration.boatload.ENBoatTypes;
 
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
@@ -25,7 +31,7 @@ import static net.minecraft.data.recipes.RecipeCategory.*;
 import static pantz.enhanced_nature.core.registry.ENBlocks.*;
 
 public class ENRecipeProvider extends BlueprintRecipeProvider {
-    private static final ModLoadedCondition CAVERNS_AND_CHASMS = new ModLoadedCondition(ENConstant.CAVERNS_AND_CHASMS);
+    private static final ModLoadedCondition CAVERNS_AND_CHASMS = new ModLoadedCondition(ENConstants.CAVERNS_AND_CHASMS);
 
     public ENRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
         super(EnhancedNature.MOD_ID, output, provider);
@@ -33,6 +39,7 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
 
     @Override
     protected void buildRecipes(RecipeOutput output, HolderLookup.Provider holderLookup) {
+        // Snow & Ice
         generateRecipes(output, ENBlockFamilies.SNOW_BRICKS_FAMILY);
         generateRecipes(output, ENBlockFamilies.PACKED_ICE_BRICKS_FAMILY);
         generateRecipes(output, ENBlockFamilies.BLUE_ICE_BRICKS_FAMILY);
@@ -55,6 +62,13 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
         stonecutterRecipes(output, ENBlockFamilies.PACKED_ICE_BRICKS_FAMILY, Blocks.PACKED_ICE, PACKED_ICE_BRICKS.get());
         stonecutterRecipes(output, ENBlockFamilies.BLUE_ICE_BRICKS_FAMILY, Blocks.BLUE_ICE, BLUE_ICE_BRICKS.get());
 
+        ShapedRecipeBuilder.shaped(DECORATIONS, ICE_LANTERN.get())
+                .define('I', Blocks.PACKED_ICE).define('i', Blocks.TORCH)
+                .pattern("III").pattern("IiI").pattern("III")
+                .unlockedBy(getHasName(Blocks.PACKED_ICE), has(Blocks.PACKED_ICE))
+                .save(output);
+        
+        // Limestone
         generateRecipes(output, ENBlockFamilies.LIMESTONE_FAMILY);
         generateRecipes(output, ENBlockFamilies.POLISHED_LIMESTONE_FAMILY, null, null, null, CAVERNS_AND_CHASMS);
         generateRecipes(output, ENBlockFamilies.LIMESTONE_BRICKS_FAMILY, CAVERNS_AND_CHASMS);
@@ -68,6 +82,32 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
         stonecutterRecipes(output, ENBlockFamilies.POLISHED_LIMESTONE_FAMILY, LIMESTONE.get(), POLISHED_LIMESTONE.get());
         conditionalStonecutterRecipes(output, ENBlockFamilies.LIMESTONE_BRICKS_FAMILY, CAVERNS_AND_CHASMS, LIMESTONE.get(), POLISHED_LIMESTONE.get(), LIMESTONE_BRICKS.get());
         conditionalStonecutterRecipes(output, ENBlockFamilies.LIMESTONE_TILES_FAMILY, CAVERNS_AND_CHASMS, LIMESTONE.get(), POLISHED_LIMESTONE.get(), LIMESTONE_BRICKS.get(), LIMESTONE_TILES.get());
+
+        // Blue Granite
+        generateRecipes(output, ENBlockFamilies.BLUE_GRANITE_FAMILY);
+        generateRecipes(output, ENBlockFamilies.POLISHED_BLUE_GRANITE_FAMILY, null, null, null, CAVERNS_AND_CHASMS);
+        generateRecipes(output, ENBlockFamilies.BLUE_GRANITE_BRICKS_FAMILY, CAVERNS_AND_CHASMS);
+        generateRecipes(output, ENBlockFamilies.BLUE_GRANITE_TILES_FAMILY, CAVERNS_AND_CHASMS);
+
+        polished(output, BUILDING_BLOCKS, POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE.get());
+        polished(output, BUILDING_BLOCKS, BLUE_GRANITE_BRICKS.get(), POLISHED_BLUE_GRANITE.get());
+        conditionalRecipe(output, polishedBuilder(BLUE_GRANITE_TILES.get(), BLUE_GRANITE_BRICKS.get()), CAVERNS_AND_CHASMS);
+
+        stonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_FAMILY, BLUE_GRANITE.get());
+        stonecutterRecipes(output, ENBlockFamilies.POLISHED_BLUE_GRANITE_FAMILY, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get());
+        conditionalStonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_BRICKS_FAMILY, CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE_BRICKS.get());
+        conditionalStonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_TILES_FAMILY, CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE_BRICKS.get(), BLUE_GRANITE_TILES.get());
+
+        // Palm
+        generateRecipes(output, ENBlockFamilies.PALM_PLANKS_FAMILY);
+        planksFromLogs(output, PALM_PLANKS, ENItemTags.PALM_LOGS, 4);
+        woodFromLogs(output, PALM_WOOD, PALM_LOG);
+        woodFromLogs(output, STRIPPED_PALM_WOOD, STRIPPED_PALM_LOG);
+        hangingSign(output, PALM_HANGING_SIGNS.getFirst(), STRIPPED_PALM_LOG);
+        WoodworksRecipeProvider.conditionalLeafPileRecipes(output, PALM_LEAVES, PALM_LEAF_PILE, EnhancedNature.MOD_ID);
+        BoatloadRecipeProvider.boatRecipes(output, ENBoatTypes.PALM);
+        WoodworksRecipeProvider.baseRecipes(output, PALM_PLANKS, PALM_SLAB, PALM_BOARDS, PALM_BOOKSHELF, CHISELED_PALM_BOOKSHELF, PALM_LADDER, PALM_BEEHIVE, PALM_CHEST, TRAPPED_PALM_CHEST, EnhancedNature.MOD_ID);
+        WoodworksRecipeProvider.sawmillRecipes(output, ENBlockFamilies.PALM_PLANKS_FAMILY, ENItemTags.PALM_LOGS, PALM_BOARDS, PALM_LADDER, EnhancedNature.MOD_ID);
 
     }
 

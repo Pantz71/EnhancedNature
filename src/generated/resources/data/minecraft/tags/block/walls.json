@@ -6,6 +6,10 @@
     "enhanced_nature:limestone_wall",
     "enhanced_nature:polished_limestone_wall",
     "enhanced_nature:limestone_brick_wall",
-    "enhanced_nature:limestone_tile_wall"
+    "enhanced_nature:limestone_tile_wall",
+    "enhanced_nature:blue_granite_wall",
+    "enhanced_nature:polished_blue_granite_wall",
+    "enhanced_nature:blue_granite_brick_wall",
+    "enhanced_nature:blue_granite_tile_wall"
   ]
 }

@@ -6,6 +6,10 @@
     "enhanced_nature:limestone_stairs",
     "enhanced_nature:polished_limestone_stairs",
     "enhanced_nature:limestone_brick_stairs",
-    "enhanced_nature:limestone_tile_stairs"
+    "enhanced_nature:limestone_tile_stairs",
+    "enhanced_nature:blue_granite_stairs",
+    "enhanced_nature:polished_blue_granite_stairs",
+    "enhanced_nature:blue_granite_brick_stairs",
+    "enhanced_nature:blue_granite_tile_stairs"
   ]
 }

@@ -4,6 +4,7 @@ import com.teamabnormals.blueprint.core.util.registry.RegistryHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.config.ModConfig.Type;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
@@ -17,7 +18,9 @@ import pantz.enhanced_nature.core.data.server.ENRecipeProvider;
 import pantz.enhanced_nature.core.data.server.tags.ENBlockTagsProvider;
 import pantz.enhanced_nature.core.data.server.tags.ENItemTagsProvider;
 import pantz.enhanced_nature.core.other.ENClientCompat;
+import pantz.enhanced_nature.core.other.ENCompat;
 import pantz.enhanced_nature.core.registry.ENBlocks;
+import pantz.enhanced_nature.core.registry.ENFeatures;
 import pantz.enhanced_nature.core.registry.ENItems;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -35,6 +38,7 @@ public class EnhancedNature {
 	public EnhancedNature(IEventBus bus, ModContainer container) {
 		ENBlocks.BLOCKS.register(bus);
 		ENItems.ITEMS.register(bus);
+        ENFeatures.FEATURES.register(bus);
 
 		bus.addListener(this::commonSetup);
 		bus.addListener(this::clientSetup);
@@ -44,9 +48,7 @@ public class EnhancedNature {
 	}
 
 	private void commonSetup(FMLCommonSetupEvent event) {
-		event.enqueueWork(() -> {
-
-		});
+		event.enqueueWork(ENCompat::register);
 	}
 
 	private void clientSetup(FMLClientSetupEvent event) {
@@ -84,4 +86,8 @@ public class EnhancedNature {
 
         gen.addProvider(server, new ENDataRemolderProvider(output, provider));
 	}
+
+    public static ResourceLocation location(String name) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, name);
+    }
 }

@@ -10,6 +10,7 @@ import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -17,6 +18,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import pantz.enhanced_nature.core.EnhancedNature;
 
@@ -52,10 +54,20 @@ public class ENLootTableProvider extends LootTableProvider {
                     SNOW_BRICKS, SNOW_BRICK_STAIRS, SNOW_BRICK_WALL,
                     PACKED_ICE_BRICKS, PACKED_ICE_BRICK_STAIRS, PACKED_ICE_BRICK_WALL, CHISELED_PACKED_ICE_BRICKS, PACKED_ICE_TRAPDOOR,
                     BLUE_ICE_BRICKS, BLUE_ICE_BRICK_STAIRS, BLUE_ICE_BRICK_WALL, CHISELED_BLUE_ICE_BRICKS, BLUE_ICE_TRAPDOOR,
+                    ICE_LANTERN,
                     LIMESTONE, LIMESTONE_STAIRS, LIMESTONE_WALL, LIMESTONE_PILLAR,
                     POLISHED_LIMESTONE, POLISHED_LIMESTONE_STAIRS, POLISHED_LIMESTONE_WALL, CHISELED_POLISHED_LIMESTONE,
                     LIMESTONE_BRICKS, LIMESTONE_BRICK_STAIRS, LIMESTONE_BRICK_WALL,
-                    LIMESTONE_TILES, LIMESTONE_TILE_STAIRS, LIMESTONE_TILE_WALL
+                    LIMESTONE_TILES, LIMESTONE_TILE_STAIRS, LIMESTONE_TILE_WALL,
+                    BLUE_GRANITE, BLUE_GRANITE_STAIRS, BLUE_GRANITE_WALL, BLUE_GRANITE_PILLAR,
+                    POLISHED_BLUE_GRANITE, POLISHED_BLUE_GRANITE_STAIRS, POLISHED_BLUE_GRANITE_WALL, CHISELED_POLISHED_BLUE_GRANITE,
+                    BLUE_GRANITE_BRICKS, BLUE_GRANITE_BRICK_STAIRS, BLUE_GRANITE_BRICK_WALL,
+                    BLUE_GRANITE_TILES, BLUE_GRANITE_TILE_STAIRS, BLUE_GRANITE_TILE_WALL,
+
+                    PALM_PLANKS, PALM_LOG, PALM_WOOD, STRIPPED_PALM_LOG, STRIPPED_PALM_WOOD,
+                    PALM_SIGNS.getFirst(), PALM_HANGING_SIGNS.getFirst(), PALM_PRESSURE_PLATE,
+                    PALM_TRAPDOOR, PALM_BUTTON, PALM_STAIRS, PALM_FENCE, PALM_FENCE_GATE,
+                    PALM_BOARDS, PALM_SAPLING, PALM_LADDER
             }) {
                 this.dropSelf(block.get());
             }
@@ -63,17 +75,39 @@ public class ENLootTableProvider extends LootTableProvider {
             // slab
             for (DeferredBlock<?> block : new DeferredBlock[]{
                     SNOW_BRICK_SLAB, PACKED_ICE_BRICK_SLAB, BLUE_ICE_BRICK_SLAB,
-                    LIMESTONE_SLAB, POLISHED_LIMESTONE_SLAB, LIMESTONE_BRICK_SLAB, LIMESTONE_TILE_SLAB
+                    LIMESTONE_SLAB, POLISHED_LIMESTONE_SLAB, LIMESTONE_BRICK_SLAB, LIMESTONE_TILE_SLAB,
+                    BLUE_GRANITE_SLAB, POLISHED_BLUE_GRANITE_SLAB, BLUE_GRANITE_BRICK_SLAB, BLUE_GRANITE_TILE_SLAB,
+                    PALM_SLAB
             }) {
                 this.add(block.get(), this::createSlabItemTable);
             }
 
-            // DOOR
+            // door
             for (DeferredBlock<?> block : new DeferredBlock[]{
-                    PACKED_ICE_DOOR, BLUE_ICE_DOOR
+                    PACKED_ICE_DOOR, BLUE_ICE_DOOR,
+                    PALM_DOOR
             }) {
                 this.add(block.get(), this::createDoorTable);
             }
+
+            // nameable block entity
+            for (DeferredBlock<?> block : new DeferredBlock[]{
+                    PALM_CHEST, TRAPPED_PALM_CHEST
+            }) {
+                this.add(block.get(), this::createNameableBlockEntityTable);
+            }
+
+            this.add(PALM_LEAF_PILE.get(), this::createLeafPileDrops);
+            this.dropPottedContents(POTTED_PALM_SAPLING.get());
+            this.add(PALM_BEEHIVE.get(), this::createBeeHiveDrop);
+            this.dropWhenSilkTouch(CHISELED_PALM_BOOKSHELF.get());
+
+            this.add(PALM_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3.0F)));
+            this.add(PALM_LEAVES.get(), (block) -> createLeavesDrops(block, PALM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        }
+
+        protected LootTable.Builder createLeafPileDrops(Block block) {
+            return createMultifaceBlockDrops(block, HAS_SHEARS);
         }
 
         @Override
