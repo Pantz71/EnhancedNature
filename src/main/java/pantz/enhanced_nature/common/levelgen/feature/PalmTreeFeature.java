@@ -15,7 +15,7 @@ import java.util.List;
 
 public class PalmTreeFeature extends BlueprintTreeFeature {
     public PalmTreeFeature(Codec<TreeConfiguration> config) {
-        super(config);
+        super(false, config);
     }
 
     @Override
@@ -27,32 +27,59 @@ public class PalmTreeFeature extends BlueprintTreeFeature {
     public void doPlace(FeaturePlaceContext<TreeConfiguration> context, TreeInfo info) {
         RandomSource random = context.random();
         BlockPos origin = context.origin();
+        TreeConfiguration config = context.config();
 
-        boolean isDiagonal = random.nextFloat() < 0.90F;
+        boolean shouldLean = random.nextFloat() < 0.90F;
+
         Direction leanDirection = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
+        boolean isDiagonalXZ = random.nextBoolean();
+        Direction secondaryLeanDirection = random.nextBoolean() ? leanDirection.getClockWise() : leanDirection.getCounterClockWise();
+
         List<Integer> segments = new ArrayList<>();
-        if (isDiagonal) {
-            int currentSegmentHeight = random.nextInt(3) + 5;
-            while (currentSegmentHeight >= 2) {
-                segments.add(currentSegmentHeight);
+        int remainingHeight = config.trunkPlacer.getTreeHeight(random);
+
+        if (shouldLean) {
+            int currentSegmentHeight = Math.max(2, remainingHeight / 2);
+
+            while (remainingHeight > 0) {
+                if (remainingHeight <= 3) {
+                    segments.add(remainingHeight);
+                    break;
+                }
+
+                int segment = Math.min(currentSegmentHeight, remainingHeight);
+
+                if (remainingHeight - segment == 1) {
+                    segment--;
+                }
+
+                segments.add(segment);
+                remainingHeight -= segment;
+
                 currentSegmentHeight -= (random.nextBoolean() ? 1 : 2);
+                if (currentSegmentHeight < 2) {
+                    currentSegmentHeight = 2;
+                }
             }
         } else {
-            segments.add(random.nextInt(4) + 10);
+            segments.add(remainingHeight);
         }
 
         BlockPos.MutableBlockPos currentTrunkPos = origin.mutable();
         for (int i = 0; i < segments.size(); i++) {
             int segmentHeight = segments.get(i);
 
-            for (int h = 0; h < segmentHeight; h++) {
+            for (int height = 0; height < segmentHeight; height++) {
                 info.addLog(currentTrunkPos);
                 currentTrunkPos.move(Direction.UP);
             }
 
-            if (isDiagonal && i < segments.size() - 1) {
+            if (shouldLean && i < segments.size() - 1) {
                 currentTrunkPos.move(leanDirection);
+                if (isDiagonalXZ) {
+                    currentTrunkPos.move(secondaryLeanDirection);
+                }
             }
         }
 
@@ -63,62 +90,69 @@ public class PalmTreeFeature extends BlueprintTreeFeature {
     private void generatePalmFoliage(TreeInfo info, RandomSource random, BlockPos center) {
         BlockPos base = center.below();
 
-        info.addFoliage(base.above());
-        for (Direction dir : Direction.Plane.HORIZONTAL) {
-            info.addFoliage(base.above().relative(dir));
+        info.addFoliage(center);
+        for (int x = -1; x <= 1; x++) {
+            for (int z = -1; z <= 1; z++) {
+                info.addFoliage(center.offset(x, 0, z));
+            }
         }
 
-        for (Direction dir : Direction.Plane.HORIZONTAL) {
-            generateCardinalFrond(info, random, base, dir);
-            generateDiagonalFrond(info, random, base, dir, dir.getClockWise());
+        for (Direction direction : Direction.Plane.HORIZONTAL) {
+            generateCardinalFrond(info, random, base, direction);
+            generateDiagonalFrond(info, random, base, direction, direction.getClockWise());
         }
     }
 
-    private void generateCardinalFrond(TreeInfo info, RandomSource random, BlockPos base, Direction dir) {
-        Direction left = dir.getCounterClockWise();
-        Direction right = dir.getClockWise();
+    private void generateCardinalFrond(TreeInfo info, RandomSource random, BlockPos base, Direction direction) {
+        Direction left = direction.getCounterClockWise();
+        Direction right = direction.getClockWise();
 
-        BlockPos p1 = base.relative(dir);
-        info.addFoliage(p1);
+        BlockPos pos1 = base.relative(direction);
+        info.addFoliage(pos1);
 
-        BlockPos p2 = p1.relative(dir);
-        info.addFoliage(p2);
-        info.addFoliage(p2.relative(left));
-        info.addFoliage(p2.relative(right));
+        BlockPos pos2 = pos1.relative(direction);
+        info.addFoliage(pos2);
 
-        BlockPos p3Bridge = p2.relative(dir);
-        info.addFoliage(p3Bridge);
+        info.addFoliage(pos2.relative(left));
+        info.addFoliage(pos2.relative(right));
 
-        BlockPos p3 = p3Bridge.below();
-        info.addFoliage(p3);
-        info.addFoliage(p3.relative(left));
-        info.addFoliage(p3.relative(right));
+        BlockPos pos3 = pos2.relative(direction);
+        info.addFoliage(pos3);
 
-        if (random.nextFloat() < 0.75F) {
-            BlockPos p4Bridge = p3.below();
-            info.addFoliage(p4Bridge);
+        BlockPos pos4 = pos3.below();
+        info.addFoliage(pos4);
+        if (random.nextBoolean()) {
+            info.addFoliage(pos4.relative(left));
+        }
+        if (random.nextBoolean()) {
+            info.addFoliage(pos4.relative(right));
+        }
 
-            BlockPos p4 = p4Bridge.relative(dir);
-            info.addFoliage(p4);
+        BlockPos pos5 = pos4.relative(direction);
+        info.addFoliage(pos5);
+
+        if (random.nextBoolean()) {
+            BlockPos pos6 = pos5.below();
+            info.addFoliage(pos6);
         }
     }
 
     private void generateDiagonalFrond(TreeInfo info, RandomSource random, BlockPos base, Direction dir1, Direction dir2) {
-        BlockPos p1 = base.relative(dir1).relative(dir2);
-        info.addFoliage(p1);
+        BlockPos pos1 = base.relative(dir1).relative(dir2);
+        info.addFoliage(pos1);
 
-        BlockPos p2 = p1.relative(dir1).relative(dir2);
-        info.addFoliage(p2);
+        BlockPos pos2 = pos1.relative(dir1).relative(dir2);
+        info.addFoliage(pos2);
 
-        info.addFoliage(p2.relative(dir1.getOpposite()));
-        info.addFoliage(p2.relative(dir2.getOpposite()));
+        info.addFoliage(pos2.relative(dir1.getOpposite()));
+        info.addFoliage(pos2.relative(dir2.getOpposite()));
 
-        BlockPos p3 = p2.below();
-        info.addFoliage(p3);
+        BlockPos pos3 = pos2.below();
+        info.addFoliage(pos3);
 
         if (random.nextBoolean()) {
-            BlockPos p4 = p3.below();
-            info.addFoliage(p4);
+            BlockPos pos4 = pos3.below();
+            info.addFoliage(pos4);
         }
     }
 }
