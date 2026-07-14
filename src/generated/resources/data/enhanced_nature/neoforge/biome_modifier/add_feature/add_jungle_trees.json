@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:jungle",
+  "features": "enhanced_nature:trees_jungle",
+  "step": "vegetal_decoration"
+}

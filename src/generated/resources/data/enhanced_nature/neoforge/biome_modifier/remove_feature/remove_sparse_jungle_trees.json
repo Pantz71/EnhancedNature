@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:remove_features",
+  "biomes": "minecraft:sparse_jungle",
+  "features": "minecraft:trees_sparse_jungle",
+  "steps": "vegetal_decoration"
+}

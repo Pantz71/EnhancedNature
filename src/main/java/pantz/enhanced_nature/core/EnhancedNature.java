@@ -15,6 +15,7 @@ import pantz.enhanced_nature.core.data.server.ENDataRemolderProvider;
 import pantz.enhanced_nature.core.data.server.ENDatapackBuiltinEntriesProvider;
 import pantz.enhanced_nature.core.data.server.ENLootTableProvider;
 import pantz.enhanced_nature.core.data.server.ENRecipeProvider;
+import pantz.enhanced_nature.core.data.server.tags.ENBiomeTagsProvider;
 import pantz.enhanced_nature.core.data.server.tags.ENBlockTagsProvider;
 import pantz.enhanced_nature.core.data.server.tags.ENItemTagsProvider;
 import pantz.enhanced_nature.core.other.ENClientCompat;
@@ -79,7 +80,7 @@ public class EnhancedNature {
         gen.addProvider(server, blockTags);
         gen.addProvider(server, new ENItemTagsProvider(output, provider, blockTags.contentsGetter(), helper));
         //gen.addProvider(server, new ENEntityTypeTagsProvider(output, provider, helper));
-        //gen.addProvider(server, new ENBiomeTagsProvider(output, provider, helper));
+        gen.addProvider(server, new ENBiomeTagsProvider(output, provider, helper));
         //gen.addProvider(server, new ENTrimMaterialTagsProvider(output, provider, helper));
 
         //gen.addProvider(server, ENAdvancementProvider.create(output, provider, helper));

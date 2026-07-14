@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#enhanced_nature:has_sand",
+  "features": "enhanced_nature:palm",
+  "step": "vegetal_decoration"
+}
