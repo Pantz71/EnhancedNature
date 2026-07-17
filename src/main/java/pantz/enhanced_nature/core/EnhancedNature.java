@@ -11,10 +11,7 @@ import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import pantz.enhanced_nature.core.data.client.ENBlockStateProvider;
 import pantz.enhanced_nature.core.data.client.ENItemModelProvider;
-import pantz.enhanced_nature.core.data.server.ENDataRemolderProvider;
-import pantz.enhanced_nature.core.data.server.ENDatapackBuiltinEntriesProvider;
-import pantz.enhanced_nature.core.data.server.ENLootTableProvider;
-import pantz.enhanced_nature.core.data.server.ENRecipeProvider;
+import pantz.enhanced_nature.core.data.server.*;
 import pantz.enhanced_nature.core.data.server.tags.ENBiomeTagsProvider;
 import pantz.enhanced_nature.core.data.server.tags.ENBlockTagsProvider;
 import pantz.enhanced_nature.core.data.server.tags.ENItemTagsProvider;
@@ -74,6 +71,7 @@ public class EnhancedNature {
 
         gen.addProvider(server, new ENRecipeProvider(output, provider));
         gen.addProvider(server, new ENLootTableProvider(output, provider));
+        gen.addProvider(server, new ENDataMapsProvider(output, provider));
 
         BlockTagsProvider blockTags = new ENBlockTagsProvider(output, provider, helper);
 
