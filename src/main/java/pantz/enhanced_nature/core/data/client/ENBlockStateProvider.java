@@ -27,25 +27,25 @@ public class ENBlockStateProvider extends BlueprintBlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockFamily(ENBlockFamilies.SNOW_BRICKS_FAMILY);
+        this.blockFamily(ENBlockFamilies.SNOW_BRICKS_FAMILY);
 
-        blockFamilyWithChiseled(ENBlockFamilies.PACKED_ICE_BRICKS_FAMILY);
-        doorBlocks(PACKED_ICE_DOOR.get(), PACKED_ICE_TRAPDOOR.get());
+        this.blockFamilyWithChiseled(ENBlockFamilies.PACKED_ICE_BRICKS_FAMILY);
+        this.doorBlocks(PACKED_ICE_DOOR.get(), PACKED_ICE_TRAPDOOR.get());
 
-        blockFamilyWithChiseled(ENBlockFamilies.BLUE_ICE_BRICKS_FAMILY);
-        doorBlocks(BLUE_ICE_DOOR.get(), BLUE_ICE_TRAPDOOR.get());
+        this.blockFamilyWithChiseled(ENBlockFamilies.BLUE_ICE_BRICKS_FAMILY);
+        this.doorBlocks(BLUE_ICE_DOOR.get(), BLUE_ICE_TRAPDOOR.get());
 
-        blockFamily(ENBlockFamilies.LIMESTONE_FAMILY);
-        logBlock(LIMESTONE_PILLAR);
-        blockFamilyWithChiseledAndDoubleSlab(ENBlockFamilies.POLISHED_LIMESTONE_FAMILY);
-        blockFamily(ENBlockFamilies.LIMESTONE_BRICKS_FAMILY);
-        blockFamily(ENBlockFamilies.LIMESTONE_TILES_FAMILY);
+        this.blockFamily(ENBlockFamilies.LIMESTONE_FAMILY);
+        this.logBlock(LIMESTONE_PILLAR);
+        this.blockFamilyWithChiseledAndDoubleSlab(ENBlockFamilies.POLISHED_LIMESTONE_FAMILY);
+        this.blockFamily(ENBlockFamilies.LIMESTONE_BRICKS_FAMILY);
+        this.blockFamily(ENBlockFamilies.LIMESTONE_TILES_FAMILY);
 
-        blockFamily(ENBlockFamilies.BLUE_GRANITE_FAMILY);
-        logBlock(BLUE_GRANITE_PILLAR);
-        blockFamilyWithChiseledAndDoubleSlab(ENBlockFamilies.POLISHED_BLUE_GRANITE_FAMILY);
-        blockFamily(ENBlockFamilies.BLUE_GRANITE_BRICKS_FAMILY);
-        blockFamily(ENBlockFamilies.BLUE_GRANITE_TILES_FAMILY);
+        this.blockFamily(ENBlockFamilies.BLUE_GRANITE_FAMILY);
+        this.logBlock(BLUE_GRANITE_PILLAR);
+        this.blockFamilyWithChiseledAndDoubleSlab(ENBlockFamilies.POLISHED_BLUE_GRANITE_FAMILY);
+        this.blockFamily(ENBlockFamilies.BLUE_GRANITE_BRICKS_FAMILY);
+        this.blockFamily(ENBlockFamilies.BLUE_GRANITE_TILES_FAMILY);
 
         this.blockFamily(ENBlockFamilies.PALM_PLANKS_FAMILY);
         this.logBlocks(PALM_LOG, PALM_WOOD);
@@ -56,6 +56,9 @@ public class ENBlockStateProvider extends BlueprintBlockStateProvider {
         this.woodworksBlocks(PALM_PLANKS, PALM_BOARDS, PALM_LADDER, PALM_BOOKSHELF, PALM_BEEHIVE, PALM_CHEST, TRAPPED_PALM_CHEST);
         this.chiseledBookshelfBlock(CHISELED_PALM_BOOKSHELF, ALTERNATE_BOOKSHELF_POSITIONS);
 
+        this.blockFamily(ENBlockFamilies.PERMAFROST_FAMILY);
+        this.logBlock(PERMAFROST_PILLAR);
+        this.blockFamilyWithChiseled(ENBlockFamilies.PERMAFROST_BRICKS_FAMILY);
 
     }
 

@@ -25,6 +25,7 @@ public class ENProperties {
     public static final BlockBehaviour.Properties ICE_DOOR = BlockBehaviour.Properties.of().sound(SoundType.GLASS).mapColor(MapColor.ICE).strength(3.0f, 5.0f);
     public static final BlockBehaviour.Properties ICE_TRAPDOOR = BlockBehaviour.Properties.of().sound(SoundType.GLASS).mapColor(MapColor.ICE).strength(3.0f, 5.0f);
     public static final BlockBehaviour.Properties ICE_LANTERN = BlockBehaviour.Properties.of().requiresCorrectToolForDrops().sound(SoundType.GLASS).lightLevel(level -> 12).strength(3.0f).mapColor(MapColor.ICE);
+    public static final BlockBehaviour.Properties PERMAFROST = BlockBehaviour.Properties.of().requiresCorrectToolForDrops().sound(SoundType.STONE).instrument(NoteBlockInstrument.CHIME).strength(1.5f, 6.0f).mapColor(MapColor.ICE);
 
     public static final WoodSetProperties PALM = WoodSetProperties.builder(MapColor.TERRACOTTA_YELLOW).leavesSound(SoundType.GRASS).build();
 

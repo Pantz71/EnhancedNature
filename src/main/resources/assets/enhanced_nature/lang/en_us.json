@@ -66,6 +66,8 @@
   "block.enhanced_nature.blue_granite_tile_slab": "Blue Granite Tile Slab",
   "block.enhanced_nature.blue_granite_tile_wall": "Blue Granite Tile Wall",
 
+  "block.enhanced_nature.ice_lantern": "Ice Lantern",
+
   "block.enhanced_nature.chiseled_palm_bookshelf": "Chiseled Palm Bookshelf",
   "block.enhanced_nature.potted_palm_sapling": "Potted Palm Sapling",
   "block.enhanced_nature.palm_beehive": "Palm Beehive",
@@ -93,5 +95,17 @@
   "block.enhanced_nature.palm_sign": "Palm Sign",
   "block.enhanced_nature.palm_wall_sign": "Palm Wall Sign",
   "block.enhanced_nature.palm_hanging_sign": "Palm Hanging Sign",
-  "block.enhanced_nature.palm_wall_hanging_sign": "Palm Wall Hanging Sign"
+  "block.enhanced_nature.palm_wall_hanging_sign": "Palm Wall Hanging Sign",
+
+  "block.enhanced_nature.permafrost": "Permafrost",
+  "block.enhanced_nature.permafrost_stairs": "Permafrost Stairs",
+  "block.enhanced_nature.permafrost_slab": "Permafrost Slab",
+  "block.enhanced_nature.permafrost_wall": "Permafrost Wall",
+  "block.enhanced_nature.permafrost_pillar": "Permafrost Pillar",
+
+  "block.enhanced_nature.permafrost_bricks": "Permafrost Bricks",
+  "block.enhanced_nature.permafrost_brick_stairs": "Permafrost Brick Stairs",
+  "block.enhanced_nature.permafrost_brick_slab": "Permafrost Brick Slab",
+  "block.enhanced_nature.permafrost_brick_wall": "Permafrost Brick Wall",
+  "block.enhanced_nature.chiseled_permafrost_bricks": "Chiseled Permafrost Bricks"
 }

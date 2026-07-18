@@ -10,6 +10,8 @@
     "enhanced_nature:blue_granite_stairs",
     "enhanced_nature:polished_blue_granite_stairs",
     "enhanced_nature:blue_granite_brick_stairs",
-    "enhanced_nature:blue_granite_tile_stairs"
+    "enhanced_nature:blue_granite_tile_stairs",
+    "enhanced_nature:permafrost_stairs",
+    "enhanced_nature:permafrost_brick_stairs"
   ]
 }

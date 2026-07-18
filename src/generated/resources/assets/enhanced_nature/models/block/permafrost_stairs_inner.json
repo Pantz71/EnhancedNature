@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "enhanced_nature:block/permafrost",
+    "side": "enhanced_nature:block/permafrost",
+    "top": "enhanced_nature:block/permafrost"
+  }
+}

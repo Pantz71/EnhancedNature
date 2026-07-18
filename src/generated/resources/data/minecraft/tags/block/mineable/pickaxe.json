@@ -39,6 +39,14 @@
     "enhanced_nature:blue_granite_brick_slab",
     "enhanced_nature:blue_granite_tiles",
     "enhanced_nature:blue_granite_tile_stairs",
-    "enhanced_nature:blue_granite_tile_slab"
+    "enhanced_nature:blue_granite_tile_slab",
+    "enhanced_nature:permafrost",
+    "enhanced_nature:permafrost_stairs",
+    "enhanced_nature:permafrost_slab",
+    "enhanced_nature:permafrost_pillar",
+    "enhanced_nature:permafrost_bricks",
+    "enhanced_nature:permafrost_brick_stairs",
+    "enhanced_nature:permafrost_brick_slab",
+    "enhanced_nature:chiseled_permafrost_bricks"
   ]
 }

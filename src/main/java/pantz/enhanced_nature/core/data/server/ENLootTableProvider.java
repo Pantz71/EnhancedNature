@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.WritableRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
@@ -11,14 +12,22 @@ import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import pantz.enhanced_nature.core.EnhancedNature;
 
@@ -63,11 +72,12 @@ public class ENLootTableProvider extends LootTableProvider {
                     POLISHED_BLUE_GRANITE, POLISHED_BLUE_GRANITE_STAIRS, POLISHED_BLUE_GRANITE_WALL, CHISELED_POLISHED_BLUE_GRANITE,
                     BLUE_GRANITE_BRICKS, BLUE_GRANITE_BRICK_STAIRS, BLUE_GRANITE_BRICK_WALL,
                     BLUE_GRANITE_TILES, BLUE_GRANITE_TILE_STAIRS, BLUE_GRANITE_TILE_WALL,
-
                     PALM_PLANKS, PALM_LOG, PALM_WOOD, STRIPPED_PALM_LOG, STRIPPED_PALM_WOOD,
                     PALM_SIGNS.getFirst(), PALM_HANGING_SIGNS.getFirst(), PALM_PRESSURE_PLATE,
                     PALM_TRAPDOOR, PALM_BUTTON, PALM_STAIRS, PALM_FENCE, PALM_FENCE_GATE,
-                    PALM_BOARDS, PALM_SAPLING, PALM_LADDER
+                    PALM_BOARDS, PALM_SAPLING, PALM_LADDER,
+                    PERMAFROST, PERMAFROST_STAIRS, PERMAFROST_WALL, PERMAFROST_PILLAR,
+                    PERMAFROST_BRICKS, PERMAFROST_BRICK_STAIRS, PERMAFROST_BRICK_WALL, CHISELED_PERMAFROST_BRICKS
             }) {
                 this.dropSelf(block.get());
             }
@@ -77,7 +87,7 @@ public class ENLootTableProvider extends LootTableProvider {
                     SNOW_BRICK_SLAB, PACKED_ICE_BRICK_SLAB, BLUE_ICE_BRICK_SLAB,
                     LIMESTONE_SLAB, POLISHED_LIMESTONE_SLAB, LIMESTONE_BRICK_SLAB, LIMESTONE_TILE_SLAB,
                     BLUE_GRANITE_SLAB, POLISHED_BLUE_GRANITE_SLAB, BLUE_GRANITE_BRICK_SLAB, BLUE_GRANITE_TILE_SLAB,
-                    PALM_SLAB
+                    PALM_SLAB, PERMAFROST_SLAB, PERMAFROST_BRICK_SLAB
             }) {
                 this.add(block.get(), this::createSlabItemTable);
             }
@@ -103,7 +113,12 @@ public class ENLootTableProvider extends LootTableProvider {
             this.dropWhenSilkTouch(CHISELED_PALM_BOOKSHELF.get());
 
             this.add(PALM_BOOKSHELF.get(), (block) -> createSingleItemTableWithSilkTouch(block, Items.BOOK, ConstantValue.exactly(3.0F)));
-            this.add(PALM_LEAVES.get(), (block) -> createLeavesDrops(block, PALM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+            this.add(PALM_LEAVES.get(), (block) -> createPalmLeavesDrops(block, PALM_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+        }
+
+        protected LootTable.Builder createPalmLeavesDrops(Block leavesBlock, Block saplingBlock, float... chances) {
+            HolderLookup.RegistryLookup<Enchantment> registrylookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+            return this.createSilkTouchOrShearsDispatchTable(leavesBlock, ((LootPoolSingletonContainer.Builder<?>)this.applyExplosionCondition(leavesBlock, LootItem.lootTableItem(saplingBlock))).when(BonusLevelTableCondition.bonusLevelFlatChance(registrylookup.getOrThrow(Enchantments.FORTUNE), chances))).withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)));
         }
 
         protected LootTable.Builder createLeafPileDrops(Block block) {

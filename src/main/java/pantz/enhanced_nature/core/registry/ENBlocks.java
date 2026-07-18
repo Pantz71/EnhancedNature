@@ -137,6 +137,18 @@ public class ENBlocks {
     public static final DeferredBlock<BlueprintChestBlock> PALM_CHEST = BLOCKS.createChestBlock("palm", ENProperties.PALM.chest());
     public static final DeferredBlock<BlueprintTrappedChestBlock> TRAPPED_PALM_CHEST = BLOCKS.createTrappedChestBlock("palm", ENProperties.PALM.chest());
 
+    public static final DeferredBlock<Block> PERMAFROST = BLOCKS.createBlock("permafrost", () -> new Block(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_STAIRS = BLOCKS.createBlock("permafrost_stairs", () -> new StairBlock(PERMAFROST.get().defaultBlockState(), ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_SLAB = BLOCKS.createBlock("permafrost_slab", () -> new SlabBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_WALL = BLOCKS.createBlock("permafrost_wall", () -> new WallBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_PILLAR = BLOCKS.createBlock("permafrost_pillar", () -> new RotatedPillarBlock(ENProperties.PERMAFROST));
+
+    public static final DeferredBlock<Block> PERMAFROST_BRICKS = BLOCKS.createBlock("permafrost_bricks", () -> new Block(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_BRICK_STAIRS = BLOCKS.createBlock("permafrost_brick_stairs", () -> new StairBlock(PERMAFROST_BRICKS.get().defaultBlockState(), ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_BRICK_SLAB = BLOCKS.createBlock("permafrost_brick_slab", () -> new SlabBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_BRICK_WALL = BLOCKS.createBlock("permafrost_brick_wall", () -> new WallBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> CHISELED_PERMAFROST_BRICKS = BLOCKS.createBlock("chiseled_permafrost_bricks", () -> new Block(ENProperties.PERMAFROST));
+
     public static void setupTabs() {
 		CreativeModeTabContentsPopulator.mod(EnhancedNature.MOD_ID)
                 .tab(BUILDING_BLOCKS)
@@ -144,7 +156,8 @@ public class ENBlocks {
                 .addItemsBefore(modLoaded(Blocks.BAMBOO_BLOCK, ENConstants.WOODWORKS), PALM_BOARDS)
                 .addItemsBefore(of(Blocks.BAMBOO_BLOCK), PALM_STAIRS, PALM_SLAB, PALM_FENCE, PALM_FENCE_GATE, PALM_DOOR, PALM_TRAPDOOR, PALM_PRESSURE_PLATE, PALM_BUTTON)
                 .addItemsBefore(of(Blocks.NETHERRACK), SNOW_BRICKS, SNOW_BRICK_STAIRS, SNOW_BRICK_SLAB, SNOW_BRICK_WALL, () -> Blocks.PACKED_ICE, PACKED_ICE_BRICKS, PACKED_ICE_BRICK_STAIRS, PACKED_ICE_BRICK_SLAB, PACKED_ICE_BRICK_WALL, CHISELED_PACKED_ICE_BRICKS, PACKED_ICE_DOOR, PACKED_ICE_TRAPDOOR,
-                        () -> Blocks.BLUE_ICE, BLUE_ICE_BRICKS, BLUE_ICE_BRICK_STAIRS, BLUE_ICE_BRICK_SLAB, BLUE_ICE_BRICK_WALL, CHISELED_BLUE_ICE_BRICKS, BLUE_ICE_DOOR, BLUE_ICE_TRAPDOOR)
+                        () -> Blocks.BLUE_ICE, BLUE_ICE_BRICKS, BLUE_ICE_BRICK_STAIRS, BLUE_ICE_BRICK_SLAB, BLUE_ICE_BRICK_WALL, CHISELED_BLUE_ICE_BRICKS, BLUE_ICE_DOOR, BLUE_ICE_TRAPDOOR,
+                        PERMAFROST, PERMAFROST_STAIRS, PERMAFROST_SLAB, PERMAFROST_WALL, PERMAFROST_BRICKS, PERMAFROST_BRICK_STAIRS, PERMAFROST_BRICK_SLAB, PERMAFROST_BRICK_WALL, CHISELED_PERMAFROST_BRICKS, PERMAFROST_PILLAR)
                 .addItemsBefore(of(Blocks.CALCITE), LIMESTONE, LIMESTONE_STAIRS, LIMESTONE_SLAB, LIMESTONE_WALL, POLISHED_LIMESTONE, POLISHED_LIMESTONE_STAIRS, POLISHED_LIMESTONE_SLAB)
                 .addItemsBefore(modLoaded(Blocks.CALCITE), POLISHED_LIMESTONE_WALL, CHISELED_POLISHED_LIMESTONE, LIMESTONE_BRICKS, LIMESTONE_BRICK_STAIRS, LIMESTONE_BRICK_SLAB, LIMESTONE_BRICK_WALL, LIMESTONE_PILLAR, LIMESTONE_TILES, LIMESTONE_TILE_STAIRS, LIMESTONE_TILE_SLAB, LIMESTONE_TILE_WALL)
                 .addItemsBefore(of(Blocks.DIORITE), BLUE_GRANITE, BLUE_GRANITE_STAIRS, BLUE_GRANITE_SLAB, BLUE_GRANITE_WALL, POLISHED_BLUE_GRANITE, POLISHED_BLUE_GRANITE_STAIRS, POLISHED_BLUE_GRANITE_SLAB)
@@ -157,6 +170,7 @@ public class ENBlocks {
                 .addItemsBefore(of(Blocks.AZALEA_LEAVES), PALM_LEAVES)
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, ENConstants.WOODWORKS), PALM_LEAF_PILE)
                 .addItemsBefore(of(Blocks.AZALEA), PALM_SAPLING)
+                .addItemsAfter(of(Blocks.BLUE_ICE), PERMAFROST)
 
                 .tab(FUNCTIONAL_BLOCKS)
                 .addItemsBefore(of(Blocks.BAMBOO_SIGN), PALM_SIGNS.getFirst(), PALM_HANGING_SIGNS.getFirst())

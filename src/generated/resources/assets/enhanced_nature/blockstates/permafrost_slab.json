@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "enhanced_nature:block/permafrost_slab"
+    },
+    "type=double": {
+      "model": "enhanced_nature:block/permafrost"
+    },
+    "type=top": {
+      "model": "enhanced_nature:block/permafrost_slab_top"
+    }
+  }
+}

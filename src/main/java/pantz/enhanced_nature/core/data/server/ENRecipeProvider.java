@@ -7,12 +7,10 @@ import net.minecraft.data.BlockFamily;
 import net.minecraft.data.BlockFamily.Variant;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import org.jetbrains.annotations.Nullable;
@@ -77,11 +75,13 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
         polished(output, BUILDING_BLOCKS, POLISHED_LIMESTONE.get(), LIMESTONE.get());
         polished(output, BUILDING_BLOCKS, LIMESTONE_BRICKS.get(), POLISHED_LIMESTONE.get());
         conditionalRecipe(output, polishedBuilder(LIMESTONE_TILES.get(), LIMESTONE_BRICKS.get()), CAVERNS_AND_CHASMS);
+        conditionalRecipe(output, ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, LIMESTONE_PILLAR.get()).define('#', POLISHED_LIMESTONE.get()).pattern("#").pattern("#").unlockedBy(getHasName(POLISHED_LIMESTONE.get()), has(POLISHED_LIMESTONE.get())), CAVERNS_AND_CHASMS);
 
         stonecutterRecipes(output, ENBlockFamilies.LIMESTONE_FAMILY, LIMESTONE.get());
         stonecutterRecipes(output, ENBlockFamilies.POLISHED_LIMESTONE_FAMILY, LIMESTONE.get(), POLISHED_LIMESTONE.get());
         conditionalStonecutterRecipes(output, ENBlockFamilies.LIMESTONE_BRICKS_FAMILY, CAVERNS_AND_CHASMS, LIMESTONE.get(), POLISHED_LIMESTONE.get(), LIMESTONE_BRICKS.get());
         conditionalStonecutterRecipes(output, ENBlockFamilies.LIMESTONE_TILES_FAMILY, CAVERNS_AND_CHASMS, LIMESTONE.get(), POLISHED_LIMESTONE.get(), LIMESTONE_BRICKS.get(), LIMESTONE_TILES.get());
+        conditionalStonecutterRecipe(output, BUILDING_BLOCKS, LIMESTONE_PILLAR.get(), CAVERNS_AND_CHASMS, LIMESTONE.get(), POLISHED_LIMESTONE.get());
 
         // Blue Granite
         generateRecipes(output, ENBlockFamilies.BLUE_GRANITE_FAMILY);
@@ -92,11 +92,13 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
         polished(output, BUILDING_BLOCKS, POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE.get());
         polished(output, BUILDING_BLOCKS, BLUE_GRANITE_BRICKS.get(), POLISHED_BLUE_GRANITE.get());
         conditionalRecipe(output, polishedBuilder(BLUE_GRANITE_TILES.get(), BLUE_GRANITE_BRICKS.get()), CAVERNS_AND_CHASMS);
+        conditionalRecipe(output, ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, BLUE_GRANITE_PILLAR.get()).define('#', POLISHED_BLUE_GRANITE.get()).pattern("#").pattern("#").unlockedBy(getHasName(POLISHED_BLUE_GRANITE.get()), has(POLISHED_BLUE_GRANITE.get())), CAVERNS_AND_CHASMS);
 
         stonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_FAMILY, BLUE_GRANITE.get());
         stonecutterRecipes(output, ENBlockFamilies.POLISHED_BLUE_GRANITE_FAMILY, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get());
         conditionalStonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_BRICKS_FAMILY, CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE_BRICKS.get());
         conditionalStonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_TILES_FAMILY, CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE_BRICKS.get(), BLUE_GRANITE_TILES.get());
+        conditionalStonecutterRecipe(output, BUILDING_BLOCKS, BLUE_GRANITE_PILLAR.get(), CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get());
 
         // Palm
         generateRecipes(output, ENBlockFamilies.PALM_PLANKS_FAMILY);
@@ -109,6 +111,15 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
         WoodworksRecipeProvider.baseRecipes(output, PALM_PLANKS, PALM_SLAB, PALM_BOARDS, PALM_BOOKSHELF, CHISELED_PALM_BOOKSHELF, PALM_LADDER, PALM_BEEHIVE, PALM_CHEST, TRAPPED_PALM_CHEST, EnhancedNature.MOD_ID);
         WoodworksRecipeProvider.sawmillRecipes(output, ENBlockFamilies.PALM_PLANKS_FAMILY, ENItemTags.PALM_LOGS, PALM_BOARDS, PALM_LADDER, EnhancedNature.MOD_ID);
 
+        generateRecipes(output, ENBlockFamilies.PERMAFROST_FAMILY);
+        generateRecipes(output, ENBlockFamilies.PERMAFROST_BRICKS_FAMILY);
+
+        polished(output, BUILDING_BLOCKS, PERMAFROST_BRICKS.get(), PERMAFROST.get());
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, PERMAFROST_PILLAR.get()).define('#', PERMAFROST.get()).pattern("#").pattern("#").unlockedBy(getHasName(PERMAFROST.get()), has(PERMAFROST.get())).save(output);
+
+        stonecutterRecipe(output, BUILDING_BLOCKS, PERMAFROST_PILLAR.get(), PERMAFROST.get());
+        stonecutterRecipes(output, ENBlockFamilies.PERMAFROST_FAMILY, PERMAFROST.get());
+        stonecutterRecipes(output, ENBlockFamilies.PERMAFROST_BRICKS_FAMILY, PERMAFROST.get(), PERMAFROST_BRICKS.get());
     }
 
     protected void generateRecipes(RecipeOutput output, BlockFamily family, ICondition... conditions) {
@@ -204,6 +215,18 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
             builder.save(output);
         } else {
             conditionalRecipe(output, builder, condition);
+        }
+    }
+
+    protected void conditionalStonecutterRecipe(RecipeOutput recipeOutput, RecipeCategory category, ItemLike output, ICondition condition, ItemLike... inputs) {
+        for (ItemLike input : inputs) {
+            conditionalRecipe(recipeOutput, stonecutterRecipe(category, output, input, 1), ResourceLocation.fromNamespaceAndPath(this.getModID(), this.getModConversionRecipeName(output, input).getPath() + "_stonecutting"), condition);
+        }
+    }
+
+    protected void conditionalStonecutterRecipe(RecipeOutput recipeOutput, RecipeCategory category, ItemLike output, int count, ICondition condition, ItemLike... inputs) {
+        for (ItemLike input : inputs) {
+            conditionalRecipe(recipeOutput, stonecutterRecipe(category, output, input, count), ResourceLocation.fromNamespaceAndPath(this.getModID(), this.getModConversionRecipeName(output, input).getPath() + "_stonecutting"), condition);
         }
     }
 
