@@ -25,7 +25,7 @@ public class IceLanternBlock extends LanternBlock {
     );
     private static final VoxelShape HANGING_SHAPE = Shapes.or(
             Block.box(4, 1, 4, 12, 8, 12),
-            Block.box(5, 9, 5, 11, 11, 11)
+            Block.box(5, 8, 5, 11, 10, 11)
     );
     public IceLanternBlock(Properties pProperties) {
         super(pProperties);
