@@ -27,6 +27,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import pantz.enhanced_nature.core.other.tags.ENBlockTags;
+import pantz.enhanced_nature.core.registry.ENBlocks;
 
 @Mixin(PotionItem.class)
 public class PotionItemMixin {
@@ -40,7 +42,7 @@ public class PotionItemMixin {
         PotionContents contents = stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
         BlockState state = level.getBlockState(pos);
 
-        if (context.getClickedFace() != Direction.DOWN && state.is(BlockTags.CONVERTABLE_TO_MUD) && contents.is(Potions.WATER)) {
+        if (context.getClickedFace() != Direction.DOWN && state.is(ENBlockTags.CONVERTABLE_TO_PEAT) && contents.is(Potions.WATER)) {
             level.playSound(null, pos, SoundEvents.GENERIC_SPLASH, SoundSource.BLOCKS, 1.0F, 1.0F);
             if (player != null) {
                 player.setItemInHand(context.getHand(), ItemUtils.createFilledResult(stack, player, new ItemStack(Items.GLASS_BOTTLE)));
@@ -57,7 +59,7 @@ public class PotionItemMixin {
 
             level.playSound(null, pos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS, 1.0F, 1.0F);
             level.gameEvent(null, GameEvent.FLUID_PLACE, pos);
-            level.setBlockAndUpdate(pos, Blocks.MUD.defaultBlockState());
+            level.setBlockAndUpdate(pos, ENBlocks.PEAT.get().defaultBlockState());
             cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide()));
         }
 
