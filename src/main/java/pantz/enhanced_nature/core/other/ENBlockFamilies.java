@@ -22,6 +22,12 @@ public class ENBlockFamilies {
     public static final BlockFamily PERMAFROST_FAMILY = new BlockFamily.Builder(PERMAFROST.get()).stairs(PERMAFROST_STAIRS.get()).slab(PERMAFROST_SLAB.get()).wall(PERMAFROST_WALL.get()).getFamily();
     public static final BlockFamily PERMAFROST_BRICKS_FAMILY = new BlockFamily.Builder(PERMAFROST_BRICKS.get()).stairs(PERMAFROST_BRICK_STAIRS.get()).slab(PERMAFROST_BRICK_SLAB.get()).wall(PERMAFROST_BRICK_WALL.get()).chiseled(CHISELED_PERMAFROST_BRICKS.get()).getFamily();
 
+    public static final BlockFamily SLIME_BRICKS_FAMILY = new BlockFamily.Builder(SLIME_BRICKS.get()).stairs(SLIME_BRICK_STAIRS.get()).slab(SLIME_BRICK_SLAB.get()).wall(SLIME_BRICK_WALL.get()).chiseled(CHISELED_SLIME_BRICKS.get()).getFamily();
+    public static final BlockFamily SLIME_TILES_FAMILY = new BlockFamily.Builder(SLIME_TILES.get()).stairs(SLIME_TILE_STAIRS.get()).slab(SLIME_TILE_SLAB.get()).wall(SLIME_TILE_WALL.get()).getFamily();
+
+    public static final BlockFamily PEAT_BRICKS_FAMILY = new BlockFamily.Builder(PEAT_BRICKS.get()).stairs(PEAT_BRICK_STAIRS.get()).slab(PEAT_BRICK_SLAB.get()).wall(PEAT_BRICK_WALL.get()).getFamily();
+    public static final BlockFamily PEAT_TILES_FAMILY = new BlockFamily.Builder(PEAT_TILES.get()).stairs(PEAT_TILE_STAIRS.get()).slab(PEAT_TILE_SLAB.get()).wall(PEAT_TILE_WALL.get()).getFamily();
+
     public static final BlockFamily PALM_PLANKS_FAMILY = new BlockFamily.Builder(PALM_PLANKS.get()).button(PALM_BUTTON.get()).fence(PALM_FENCE.get()).fenceGate(PALM_FENCE_GATE.get()).pressurePlate(PALM_PRESSURE_PLATE.get()).sign(PALM_SIGNS.getFirst().get(), PALM_SIGNS.getSecond().get()).slab(PALM_SLAB.get()).stairs(PALM_STAIRS.get()).door(PALM_DOOR.get()).trapdoor(PALM_TRAPDOOR.get()).recipeGroupPrefix("wooden").recipeUnlockedBy("has_planks").getFamily();
 
 

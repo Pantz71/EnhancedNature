@@ -20,6 +20,7 @@ import net.minecraft.world.level.ItemLike;
 import pantz.enhanced_nature.common.block.ChiseledPalmBookShelfBlock;
 import pantz.enhanced_nature.common.block.IceLanternBlock;
 import pantz.enhanced_nature.common.block.PalmSaplingBlock;
+import pantz.enhanced_nature.common.block.SlimeBulbBlock;
 import pantz.enhanced_nature.core.EnhancedNature;
 import pantz.enhanced_nature.core.other.ENConstants;
 import pantz.enhanced_nature.core.other.ENProperties;
@@ -109,6 +110,48 @@ public class ENBlocks {
     public static final DeferredBlock<Block> BLUE_GRANITE_TILE_SLAB = BLOCKS.createBlock("blue_granite_tile_slab", () -> new SlabBlock(ENProperties.BLUE_GRANITE));
     public static final DeferredBlock<Block> BLUE_GRANITE_TILE_WALL = BLOCKS.createBlock("blue_granite_tile_wall", () -> new WallBlock(ENProperties.BLUE_GRANITE));
 
+    // Permafrost
+    public static final DeferredBlock<Block> PERMAFROST = BLOCKS.createBlock("permafrost", () -> new Block(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_STAIRS = BLOCKS.createBlock("permafrost_stairs", () -> new StairBlock(PERMAFROST.get().defaultBlockState(), ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_SLAB = BLOCKS.createBlock("permafrost_slab", () -> new SlabBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_WALL = BLOCKS.createBlock("permafrost_wall", () -> new WallBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_PILLAR = BLOCKS.createBlock("permafrost_pillar", () -> new RotatedPillarBlock(ENProperties.PERMAFROST));
+
+    public static final DeferredBlock<Block> PERMAFROST_BRICKS = BLOCKS.createBlock("permafrost_bricks", () -> new Block(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_BRICK_STAIRS = BLOCKS.createBlock("permafrost_brick_stairs", () -> new StairBlock(PERMAFROST_BRICKS.get().defaultBlockState(), ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_BRICK_SLAB = BLOCKS.createBlock("permafrost_brick_slab", () -> new SlabBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> PERMAFROST_BRICK_WALL = BLOCKS.createBlock("permafrost_brick_wall", () -> new WallBlock(ENProperties.PERMAFROST));
+    public static final DeferredBlock<Block> CHISELED_PERMAFROST_BRICKS = BLOCKS.createBlock("chiseled_permafrost_bricks", () -> new Block(ENProperties.PERMAFROST));
+
+    // Slime
+    public static final DeferredBlock<Block> SLIME_BRICKS = BLOCKS.createBlock("slime_bricks", () -> new Block(ENProperties.SLIME));
+    public static final DeferredBlock<Block> SLIME_BRICK_STAIRS = BLOCKS.createBlock("slime_brick_stairs", () -> new StairBlock(SLIME_BRICKS.get().defaultBlockState(), ENProperties.SLIME));
+    public static final DeferredBlock<Block> SLIME_BRICK_SLAB = BLOCKS.createBlock("slime_brick_slab", () -> new SlabBlock(ENProperties.SLIME));
+    public static final DeferredBlock<Block> SLIME_BRICK_WALL = BLOCKS.createBlock("slime_brick_wall", () -> new WallBlock(ENProperties.SLIME));
+    public static final DeferredBlock<Block> CHISELED_SLIME_BRICKS = BLOCKS.createBlock("chiseled_slime_bricks", () -> new Block(ENProperties.SLIME));
+
+    public static final DeferredBlock<Block> SLIME_TILES = BLOCKS.createBlock("slime_tiles", () -> new Block(ENProperties.SLIME));
+    public static final DeferredBlock<Block> SLIME_TILE_STAIRS = BLOCKS.createBlock("slime_tile_stairs", () -> new StairBlock(SLIME_TILES.get().defaultBlockState(), ENProperties.SLIME));
+    public static final DeferredBlock<Block> SLIME_TILE_SLAB = BLOCKS.createBlock("slime_tile_slab", () -> new SlabBlock(ENProperties.SLIME));
+    public static final DeferredBlock<Block> SLIME_TILE_WALL = BLOCKS.createBlock("slime_tile_wall", () -> new WallBlock(ENProperties.SLIME));
+
+    public static final DeferredBlock<Block> SLIME_BULB = BLOCKS.createBlock("slime_bulb", () -> new SlimeBulbBlock(ENProperties.SLIME_BULB));
+
+    // Peat
+    public static final DeferredBlock<Block> PEAT = BLOCKS.createBlock("peat", () -> new MudBlock(ENProperties.PEAT));
+    public static final DeferredBlock<Block> DRIED_PEAT = BLOCKS.createBlock("dried_peat", () -> new Block(ENProperties.DRIED_PEAT));
+
+    public static final DeferredBlock<Block> PEAT_BRICKS = BLOCKS.createBlock("peat_bricks", () -> new Block(ENProperties.DRIED_PEAT));
+    public static final DeferredBlock<Block> PEAT_BRICK_STAIRS = BLOCKS.createBlock("peat_brick_stairs", () -> new StairBlock(PEAT_BRICKS.get().defaultBlockState(), ENProperties.DRIED_PEAT));
+    public static final DeferredBlock<Block> PEAT_BRICK_SLAB = BLOCKS.createBlock("peat_brick_slab", () -> new SlabBlock(ENProperties.DRIED_PEAT));
+    public static final DeferredBlock<Block> PEAT_BRICK_WALL = BLOCKS.createBlock("peat_brick_wall", () -> new WallBlock(ENProperties.DRIED_PEAT));
+
+    public static final DeferredBlock<Block> PEAT_TILES = BLOCKS.createBlock("peat_tiles", () -> new Block(ENProperties.DRIED_PEAT));
+    public static final DeferredBlock<Block> PEAT_TILE_STAIRS = BLOCKS.createBlock("peat_tile_stairs", () -> new StairBlock(PEAT_BRICKS.get().defaultBlockState(), ENProperties.DRIED_PEAT));
+    public static final DeferredBlock<Block> PEAT_TILE_SLAB = BLOCKS.createBlock("peat_tile_slab", () -> new SlabBlock(ENProperties.DRIED_PEAT));
+    public static final DeferredBlock<Block> PEAT_TILE_WALL = BLOCKS.createBlock("peat_tile_wall", () -> new WallBlock(ENProperties.DRIED_PEAT));
+
+    // Palm
     public static final DeferredBlock<Block> STRIPPED_PALM_LOG = BLOCKS.createBlock("stripped_palm_log", () -> new RotatedPillarBlock(ENProperties.PALM.log()));
     public static final DeferredBlock<Block> STRIPPED_PALM_WOOD = BLOCKS.createBlock("stripped_palm_wood", () -> new RotatedPillarBlock(ENProperties.PALM.log()));
     public static final DeferredBlock<Block> PALM_LOG = BLOCKS.createBlock("palm_log", () -> new LogBlock(STRIPPED_PALM_LOG, ENProperties.PALM.log()));
@@ -137,18 +180,6 @@ public class ENBlocks {
     public static final DeferredBlock<BlueprintChestBlock> PALM_CHEST = BLOCKS.createChestBlock("palm", ENProperties.PALM.chest());
     public static final DeferredBlock<BlueprintTrappedChestBlock> TRAPPED_PALM_CHEST = BLOCKS.createTrappedChestBlock("palm", ENProperties.PALM.chest());
 
-    public static final DeferredBlock<Block> PERMAFROST = BLOCKS.createBlock("permafrost", () -> new Block(ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> PERMAFROST_STAIRS = BLOCKS.createBlock("permafrost_stairs", () -> new StairBlock(PERMAFROST.get().defaultBlockState(), ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> PERMAFROST_SLAB = BLOCKS.createBlock("permafrost_slab", () -> new SlabBlock(ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> PERMAFROST_WALL = BLOCKS.createBlock("permafrost_wall", () -> new WallBlock(ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> PERMAFROST_PILLAR = BLOCKS.createBlock("permafrost_pillar", () -> new RotatedPillarBlock(ENProperties.PERMAFROST));
-
-    public static final DeferredBlock<Block> PERMAFROST_BRICKS = BLOCKS.createBlock("permafrost_bricks", () -> new Block(ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> PERMAFROST_BRICK_STAIRS = BLOCKS.createBlock("permafrost_brick_stairs", () -> new StairBlock(PERMAFROST_BRICKS.get().defaultBlockState(), ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> PERMAFROST_BRICK_SLAB = BLOCKS.createBlock("permafrost_brick_slab", () -> new SlabBlock(ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> PERMAFROST_BRICK_WALL = BLOCKS.createBlock("permafrost_brick_wall", () -> new WallBlock(ENProperties.PERMAFROST));
-    public static final DeferredBlock<Block> CHISELED_PERMAFROST_BRICKS = BLOCKS.createBlock("chiseled_permafrost_bricks", () -> new Block(ENProperties.PERMAFROST));
-
     public static void setupTabs() {
 		CreativeModeTabContentsPopulator.mod(EnhancedNature.MOD_ID)
                 .tab(BUILDING_BLOCKS)
@@ -162,6 +193,7 @@ public class ENBlocks {
                 .addItemsBefore(modLoaded(Blocks.CALCITE), POLISHED_LIMESTONE_WALL, CHISELED_POLISHED_LIMESTONE, LIMESTONE_BRICKS, LIMESTONE_BRICK_STAIRS, LIMESTONE_BRICK_SLAB, LIMESTONE_BRICK_WALL, LIMESTONE_PILLAR, LIMESTONE_TILES, LIMESTONE_TILE_STAIRS, LIMESTONE_TILE_SLAB, LIMESTONE_TILE_WALL)
                 .addItemsBefore(of(Blocks.DIORITE), BLUE_GRANITE, BLUE_GRANITE_STAIRS, BLUE_GRANITE_SLAB, BLUE_GRANITE_WALL, POLISHED_BLUE_GRANITE, POLISHED_BLUE_GRANITE_STAIRS, POLISHED_BLUE_GRANITE_SLAB)
                 .addItemsBefore(modLoaded(Blocks.DIORITE), POLISHED_BLUE_GRANITE_WALL, CHISELED_POLISHED_BLUE_GRANITE, BLUE_GRANITE_BRICKS, BLUE_GRANITE_BRICK_STAIRS, BLUE_GRANITE_BRICK_SLAB, BLUE_GRANITE_BRICK_WALL, BLUE_GRANITE_PILLAR, BLUE_GRANITE_TILES, BLUE_GRANITE_TILE_STAIRS, BLUE_GRANITE_TILE_SLAB, BLUE_GRANITE_TILE_WALL)
+                .addItemsBefore(of(Blocks.SEA_LANTERN), SLIME_BRICKS, SLIME_BRICK_STAIRS, SLIME_BRICK_SLAB, SLIME_BRICK_WALL, CHISELED_SLIME_BRICKS, SLIME_TILES, SLIME_TILE_STAIRS, SLIME_TILE_SLAB, SLIME_TILE_WALL)
 
                 .tab(NATURAL_BLOCKS)
                 .addItemsBefore(of(Blocks.CALCITE), LIMESTONE)
@@ -175,6 +207,7 @@ public class ENBlocks {
                 .tab(FUNCTIONAL_BLOCKS)
                 .addItemsBefore(of(Blocks.BAMBOO_SIGN), PALM_SIGNS.getFirst(), PALM_HANGING_SIGNS.getFirst())
                 .addItemsBefore(of(Blocks.CHAIN), ICE_LANTERN)
+                .addItemsBefore(of(Blocks.SEA_LANTERN), SLIME_BULB)
         ;
 
         CreativeModeTabContentsPopulator.mod(ENConstants.WOODWORKS + "_" + EnhancedNature.MOD_ID)

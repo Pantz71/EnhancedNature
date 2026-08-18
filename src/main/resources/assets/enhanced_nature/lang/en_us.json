@@ -21,6 +21,7 @@
 
   "block.enhanced_nature.blue_ice_door": "Blue Ice Door",
   "block.enhanced_nature.blue_ice_trapdoor": "Blue Ice Trapdoor",
+  "block.enhanced_nature.ice_lantern": "Ice Lantern",
 
   "block.enhanced_nature.limestone": "Limestone",
   "block.enhanced_nature.limestone_stairs": "Limestone Stairs",
@@ -66,7 +67,30 @@
   "block.enhanced_nature.blue_granite_tile_slab": "Blue Granite Tile Slab",
   "block.enhanced_nature.blue_granite_tile_wall": "Blue Granite Tile Wall",
 
-  "block.enhanced_nature.ice_lantern": "Ice Lantern",
+  "block.enhanced_nature.slime_bricks": "Slime Bricks",
+  "block.enhanced_nature.slime_brick_stairs": "Slime Brick Stairs",
+  "block.enhanced_nature.slime_brick_slab": "Slime Brick Slab",
+  "block.enhanced_nature.slime_brick_wall": "Slime Brick Wall",
+  "block.enhanced_nature.chiseled_slime_bricks": "Chiseled Slime Bricks",
+
+  "block.enhanced_nature.slime_tiles": "Slime Tiles",
+  "block.enhanced_nature.slime_tile_stairs": "Slime Tile Stairs",
+  "block.enhanced_nature.slime_tile_slab": "Slime Tile Slab",
+  "block.enhanced_nature.slime_tile_wall": "Slime Tile Wall",
+  "block.enhanced_nature.slime_bulb": "Slime Bulb",
+
+  "block.enhanced_nature.peat": "Peat",
+  "block.enhanced_nature.dried_peat": "Dried Peat",
+
+  "block.enhanced_nature.peat_bricks": "Peat Bricks",
+  "block.enhanced_nature.peat_brick_stairs": "Peat Brick Stairs",
+  "block.enhanced_nature.peat_brick_slab": "Peat Brick Slab",
+  "block.enhanced_nature.peat_brick_wall": "Peat Brick Wall",
+
+  "block.enhanced_nature.peat_tiles": "Peat Tiles",
+  "block.enhanced_nature.peat_tile_stairs": "Peat Tile Stairs",
+  "block.enhanced_nature.peat_tile_slab": "Peat Tile Slab",
+  "block.enhanced_nature.peat_tile_wall": "Peat Tile Wall",
 
   "block.enhanced_nature.chiseled_palm_bookshelf": "Chiseled Palm Bookshelf",
   "block.enhanced_nature.potted_palm_sapling": "Potted Palm Sapling",
