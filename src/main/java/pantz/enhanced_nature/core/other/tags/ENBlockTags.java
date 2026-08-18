@@ -8,6 +8,7 @@ import pantz.enhanced_nature.core.EnhancedNature;
 public class ENBlockTags {
 
     public static final TagKey<Block> PALM_LOGS = blockTag("palm_logs");
+    public static final TagKey<Block> CONVERTABLE_TO_PEAT = blockTag("convertable_to_peat");
 
 
     private static TagKey<Block> blockTag(String name) {

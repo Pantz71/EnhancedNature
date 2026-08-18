@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
+import static pantz.enhanced_nature.core.other.tags.ENBlockTags.CONVERTABLE_TO_PEAT;
 import static pantz.enhanced_nature.core.other.tags.ENBlockTags.PALM_LOGS;
 import static pantz.enhanced_nature.core.registry.ENBlocks.*;
 
@@ -36,25 +37,27 @@ public class ENBlockTagsProvider extends BlockTagsProvider {
                 BLUE_GRANITE_BRICKS.get(), BLUE_GRANITE_BRICK_STAIRS.get(), BLUE_GRANITE_BRICK_SLAB.get(),
                 BLUE_GRANITE_TILES.get(), BLUE_GRANITE_TILE_STAIRS.get(), BLUE_GRANITE_TILE_SLAB.get(),
                 PERMAFROST.get(), PERMAFROST_STAIRS.get(), PERMAFROST_SLAB.get(), PERMAFROST_PILLAR.get(),
-                PERMAFROST_BRICKS.get(), PERMAFROST_BRICK_STAIRS.get(), PERMAFROST_BRICK_SLAB.get(), CHISELED_PERMAFROST_BRICKS.get()
+                PERMAFROST_BRICKS.get(), PERMAFROST_BRICK_STAIRS.get(), PERMAFROST_BRICK_SLAB.get(), CHISELED_PERMAFROST_BRICKS.get(),
+                SLIME_BRICKS.get(), SLIME_BRICK_STAIRS.get(), SLIME_BRICK_SLAB.get(), CHISELED_SLIME_BRICKS.get(),
+                SLIME_TILES.get(), SLIME_TILE_STAIRS.get(), SLIME_TILE_SLAB.get()
         );
-
+        this.tag(BlockTags.MINEABLE_WITH_SHOVEL).add(PEAT.get(), DRIED_PEAT.get(), PEAT_BRICKS.get(), PEAT_BRICK_STAIRS.get(), PEAT_BRICK_SLAB.get(), PEAT_BRICK_WALL.get(), PEAT_TILES.get(), PEAT_TILE_STAIRS.get(), PEAT_BRICK_SLAB.get(), PEAT_TILE_WALL.get());
         this.tag(BlockTags.MINEABLE_WITH_HOE).add(PALM_LEAVES.get(), PALM_LEAF_PILE.get());
 
         this.tag(BlockTags.STAIRS).add(SNOW_BRICK_STAIRS.get(), PACKED_ICE_BRICK_STAIRS.get(), BLUE_ICE_BRICK_STAIRS.get(),
                 LIMESTONE_STAIRS.get(), POLISHED_LIMESTONE_STAIRS.get(), LIMESTONE_BRICK_STAIRS.get(), LIMESTONE_TILE_STAIRS.get(),
                 BLUE_GRANITE_STAIRS.get(), POLISHED_BLUE_GRANITE_STAIRS.get(), BLUE_GRANITE_BRICK_STAIRS.get(), BLUE_GRANITE_TILE_STAIRS.get(),
-                PERMAFROST_STAIRS.get(), PERMAFROST_BRICK_STAIRS.get());
+                PERMAFROST_STAIRS.get(), PERMAFROST_BRICK_STAIRS.get(), SLIME_BRICK_STAIRS.get(), SLIME_TILE_STAIRS.get());
 
         this.tag(BlockTags.SLABS).add(SNOW_BRICK_SLAB.get(), PACKED_ICE_BRICK_SLAB.get(), BLUE_ICE_BRICK_SLAB.get(),
                 LIMESTONE_SLAB.get(), POLISHED_LIMESTONE_SLAB.get(), LIMESTONE_BRICK_SLAB.get(), LIMESTONE_TILE_SLAB.get(),
                 BLUE_GRANITE_SLAB.get(), POLISHED_BLUE_GRANITE_SLAB.get(), BLUE_GRANITE_BRICK_SLAB.get(), BLUE_GRANITE_TILE_SLAB.get(),
-                PERMAFROST_SLAB.get(), PERMAFROST_BRICK_SLAB.get());
+                PERMAFROST_SLAB.get(), PERMAFROST_BRICK_SLAB.get(), SLIME_BRICK_SLAB.get(), SLIME_TILE_SLAB.get());
 
         this.tag(BlockTags.WALLS).add(SNOW_BRICK_WALL.get(), PACKED_ICE_BRICK_WALL.get(), BLUE_ICE_BRICK_WALL.get(),
                 LIMESTONE_WALL.get(), POLISHED_LIMESTONE_WALL.get(), LIMESTONE_BRICK_WALL.get(), LIMESTONE_TILE_WALL.get(),
                 BLUE_GRANITE_WALL.get(), POLISHED_BLUE_GRANITE_WALL.get(), BLUE_GRANITE_BRICK_WALL.get(), BLUE_GRANITE_TILE_WALL.get(),
-                PERMAFROST_WALL.get(), PERMAFROST_BRICK_WALL.get());
+                PERMAFROST_WALL.get(), PERMAFROST_BRICK_WALL.get(), SLIME_BRICK_WALL.get(), SLIME_TILE_WALL.get());
 
         this.tag(BlockTags.DOORS).add(PACKED_ICE_DOOR.get(), BLUE_ICE_DOOR.get());
         this.tag(BlockTags.TRAPDOORS).add(PACKED_ICE_TRAPDOOR.get(), BLUE_ICE_TRAPDOOR.get());
@@ -98,5 +101,13 @@ public class ENBlockTagsProvider extends BlockTagsProvider {
         this.tag(Tags.Blocks.FENCE_GATES_WOODEN).add(PALM_FENCE_GATE.get());
         this.tag(Tags.Blocks.STRIPPED_LOGS).add(STRIPPED_PALM_LOG.get());
         this.tag(Tags.Blocks.STRIPPED_WOODS).add(STRIPPED_PALM_WOOD.get());
+
+        this.tag(BlockTags.DIRT).add(PEAT.get(), DRIED_PEAT.get(), PEAT_BRICKS.get(), PEAT_BRICK_STAIRS.get(), PEAT_BRICK_SLAB.get(), PEAT_BRICK_WALL.get(), PEAT_TILES.get(), PEAT_TILE_STAIRS.get(), PEAT_BRICK_SLAB.get(), PEAT_TILE_WALL.get());
+        this.tag(BlockTags.FROGS_SPAWNABLE_ON).add(PEAT.get());
+        this.tag(BlockTags.MANGROVE_ROOTS_CAN_GROW_THROUGH).add(PEAT.get());
+        this.tag(BlockTags.MANGROVE_LOGS_CAN_GROW_THROUGH).add(PEAT.get());
+
+        this.tag(CONVERTABLE_TO_PEAT).add(DRIED_PEAT.get());
+
     }
 }

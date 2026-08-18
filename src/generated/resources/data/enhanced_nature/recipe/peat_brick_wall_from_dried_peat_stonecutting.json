@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "enhanced_nature:dried_peat"
+  },
+  "result": {
+    "count": 1,
+    "id": "enhanced_nature:peat_brick_wall"
+  }
+}

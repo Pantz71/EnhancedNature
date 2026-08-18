@@ -12,6 +12,8 @@
     "enhanced_nature:blue_granite_brick_slab",
     "enhanced_nature:blue_granite_tile_slab",
     "enhanced_nature:permafrost_slab",
-    "enhanced_nature:permafrost_brick_slab"
+    "enhanced_nature:permafrost_brick_slab",
+    "enhanced_nature:slime_brick_slab",
+    "enhanced_nature:slime_tile_slab"
   ]
 }

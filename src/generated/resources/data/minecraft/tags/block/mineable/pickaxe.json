@@ -47,6 +47,13 @@
     "enhanced_nature:permafrost_bricks",
     "enhanced_nature:permafrost_brick_stairs",
     "enhanced_nature:permafrost_brick_slab",
-    "enhanced_nature:chiseled_permafrost_bricks"
+    "enhanced_nature:chiseled_permafrost_bricks",
+    "enhanced_nature:slime_bricks",
+    "enhanced_nature:slime_brick_stairs",
+    "enhanced_nature:slime_brick_slab",
+    "enhanced_nature:chiseled_slime_bricks",
+    "enhanced_nature:slime_tiles",
+    "enhanced_nature:slime_tile_stairs",
+    "enhanced_nature:slime_tile_slab"
   ]
 }

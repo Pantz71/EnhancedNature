@@ -25,6 +25,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import pantz.enhanced_nature.core.registry.ENSoundEvents;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -36,6 +37,7 @@ public class EnhancedNature {
 	public EnhancedNature(IEventBus bus, ModContainer container) {
 		ENBlocks.BLOCKS.register(bus);
 		ENItems.ITEMS.register(bus);
+        ENSoundEvents.SOUND_EVENTS.register(bus);
         ENFeatures.FEATURES.register(bus);
 
 		bus.addListener(this::commonSetup);

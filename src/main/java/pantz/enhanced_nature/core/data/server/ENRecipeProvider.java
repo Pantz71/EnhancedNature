@@ -2,15 +2,18 @@ package pantz.enhanced_nature.core.data.server;
 
 import com.teamabnormals.blueprint.core.data.server.BlueprintRecipeProvider;
 import com.teamabnormals.boatload.core.data.server.BoatloadRecipeProvider;
+import com.teamabnormals.clayworks.core.data.server.ClayworksRecipeProvider;
 import com.teamabnormals.woodworks.core.data.server.WoodworksRecipeProvider;
 import net.minecraft.data.BlockFamily;
 import net.minecraft.data.BlockFamily.Variant;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.conditions.ICondition;
 import net.neoforged.neoforge.common.conditions.ModLoadedCondition;
 import org.jetbrains.annotations.Nullable;
@@ -30,6 +33,7 @@ import static pantz.enhanced_nature.core.registry.ENBlocks.*;
 
 public class ENRecipeProvider extends BlueprintRecipeProvider {
     private static final ModLoadedCondition CAVERNS_AND_CHASMS = new ModLoadedCondition(ENConstants.CAVERNS_AND_CHASMS);
+    private static final ModLoadedCondition ENVIRONMENTAL = new ModLoadedCondition(ENConstants.ENVIRONMENTAL);
 
     public ENRecipeProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider) {
         super(EnhancedNature.MOD_ID, output, provider);
@@ -99,6 +103,45 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
         conditionalStonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_BRICKS_FAMILY, CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE_BRICKS.get());
         conditionalStonecutterRecipes(output, ENBlockFamilies.BLUE_GRANITE_TILES_FAMILY, CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get(), BLUE_GRANITE_BRICKS.get(), BLUE_GRANITE_TILES.get());
         conditionalStonecutterRecipe(output, BUILDING_BLOCKS, BLUE_GRANITE_PILLAR.get(), CAVERNS_AND_CHASMS, BLUE_GRANITE.get(), POLISHED_BLUE_GRANITE.get());
+
+        // Slime
+        generateRecipes(output, ENBlockFamilies.SLIME_BRICKS_FAMILY);
+        generateRecipes(output, ENBlockFamilies.SLIME_TILES_FAMILY);
+
+        ShapedRecipeBuilder.shaped(BUILDING_BLOCKS, SLIME_BRICKS.get(), 8)
+                .define('#', Blocks.STONE_BRICKS).define('S', Tags.Items.STORAGE_BLOCKS_SLIME)
+                .pattern("###")
+                .pattern("#S#")
+                .pattern("###")
+                .unlockedBy(getHasName(Blocks.SLIME_BLOCK), has(Tags.Items.STORAGE_BLOCKS_SLIME))
+                .save(output);
+        polished(output, BUILDING_BLOCKS, SLIME_TILES.get(), SLIME_BRICKS.get());
+
+        ShapedRecipeBuilder.shaped(DECORATIONS, SLIME_BULB.get())
+                .define('/', Tags.Items.RODS_WOODEN).define('S', Tags.Items.SLIME_BALLS)
+                .define('g', Tags.Items.DUSTS_GLOWSTONE)
+                .pattern(" S ")
+                .pattern("SgS")
+                .pattern(" / ")
+                .unlockedBy(getHasName(Items.GLOWSTONE_DUST), has(Tags.Items.DUSTS_GLOWSTONE))
+                .unlockedBy(getHasName(Items.SLIME_BALL), has(Tags.Items.SLIME_BALLS))
+                .save(output);
+
+        stonecutterRecipes(output, ENBlockFamilies.SLIME_BRICKS_FAMILY, SLIME_BRICKS.get());
+        stonecutterRecipes(output, ENBlockFamilies.SLIME_TILES_FAMILY, SLIME_BRICKS.get(), SLIME_TILES.get());
+
+        // Peat
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(PEAT.get()), BUILDING_BLOCKS, DRIED_PEAT.get(), 0.1F, 200);
+        ClayworksRecipeProvider.bakingRecipe(output, BUILDING_BLOCKS, PEAT.get(), DRIED_PEAT.get(), 0.1F, 100, EnhancedNature.MOD_ID);
+
+        polished(output, BUILDING_BLOCKS, DRIED_PEAT.get(), PEAT_BRICKS.get());
+        polished(output, BUILDING_BLOCKS, PEAT_BRICKS.get(), PEAT_TILES.get());
+
+        generateRecipes(output, ENBlockFamilies.PEAT_BRICKS_FAMILY);
+        generateRecipes(output, ENBlockFamilies.PEAT_TILES_FAMILY);
+
+        stonecutterRecipes(output, ENBlockFamilies.PEAT_BRICKS_FAMILY, DRIED_PEAT, PEAT_BRICKS);
+        conditionalStonecutterRecipes(output, ENBlockFamilies.PEAT_TILES_FAMILY, ENVIRONMENTAL, DRIED_PEAT, PEAT_BRICKS, PEAT_TILES);
 
         // Palm
         generateRecipes(output, ENBlockFamilies.PALM_PLANKS_FAMILY);

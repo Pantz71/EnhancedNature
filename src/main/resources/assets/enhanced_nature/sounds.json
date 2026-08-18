@@ -1,0 +1,8 @@
+{
+  "block.peat.dries": {
+    "sounds": [
+      "random/fizz"
+    ],
+    "subtitle": "subtitles.enhanced_nature.block.peat.dries"
+  }
+}

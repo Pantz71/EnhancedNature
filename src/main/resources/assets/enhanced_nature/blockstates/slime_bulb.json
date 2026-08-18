@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": { "model": "enhanced_nature:block/slime_bulb_wall" },
+    "facing=south": { "model": "enhanced_nature:block/slime_bulb_wall", "y": 180 },
+    "facing=east": { "model": "enhanced_nature:block/slime_bulb_wall", "y": 90 },
+    "facing=west": { "model": "enhanced_nature:block/slime_bulb_wall", "y": 270 },
+    "facing=up": { "model": "enhanced_nature:block/slime_bulb" },
+    "facing=down": { "model": "enhanced_nature:block/slime_bulb_ceiling" }
+  }
+}

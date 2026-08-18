@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_slime_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "enhanced_nature:slime_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "enhanced_nature:slime_tile_wall_from_slime_tiles_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_slime_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "enhanced_nature:slime_tile_wall_from_slime_tiles_stonecutting"
+    ]
+  }
+}

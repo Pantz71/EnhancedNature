@@ -1,10 +1,11 @@
 {
   "required": true,
-  "package": "com.teamabnormals.enhanced_nature.core.mixin",
+  "package": "pantz.enhanced_nature.core.mixin",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
-  "refmap": "template_mod.refmap.json",
+  "refmap": "enhanced_nature.refmap.json",
   "mixins": [
+    "PotionItemMixin"
   ],
   "injectors": {
     "defaultRequire": 1

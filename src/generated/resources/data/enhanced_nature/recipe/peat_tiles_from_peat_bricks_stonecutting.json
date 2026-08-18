@@ -1,0 +1,16 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "neoforge:mod_loaded",
+      "modid": "environmental"
+    }
+  ],
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "enhanced_nature:peat_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "enhanced_nature:peat_tiles"
+  }
+}

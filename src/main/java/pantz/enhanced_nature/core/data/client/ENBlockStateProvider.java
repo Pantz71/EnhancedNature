@@ -60,6 +60,13 @@ public class ENBlockStateProvider extends BlueprintBlockStateProvider {
         this.logBlock(PERMAFROST_PILLAR);
         this.blockFamilyWithChiseled(ENBlockFamilies.PERMAFROST_BRICKS_FAMILY);
 
+        this.blockFamilyWithChiseled(ENBlockFamilies.SLIME_BRICKS_FAMILY);
+        this.blockFamily(ENBlockFamilies.SLIME_TILES_FAMILY);
+        this.generatedItem(SLIME_BULB.asItem(), "item");
+
+        this.blockFamily(ENBlockFamilies.PEAT_BRICKS_FAMILY);
+        this.blockFamily(ENBlockFamilies.PEAT_TILES_FAMILY);
+
     }
 
     public void blockFamilyWithChiseled(BlockFamily family) {

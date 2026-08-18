@@ -1,12 +1,20 @@
 package pantz.enhanced_nature.core.other;
 
 import com.teamabnormals.blueprint.core.util.DataUtil;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.DispenserBlock;
+import pantz.enhanced_nature.core.registry.ENDispenserBehaviors;
 
 import static pantz.enhanced_nature.core.registry.ENBlocks.*;
 
 public class ENCompat {
     public static void register() {
         registerFlammables();
+        registerDispenserBehaviors();
+    }
+
+    private static void registerDispenserBehaviors() {
+        DispenserBlock.registerBehavior(Items.POTION, ENDispenserBehaviors.CONVERT_PEAT);
     }
 
     private static void registerFlammables() {

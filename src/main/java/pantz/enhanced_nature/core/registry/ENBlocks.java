@@ -17,10 +17,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
-import pantz.enhanced_nature.common.block.ChiseledPalmBookShelfBlock;
-import pantz.enhanced_nature.common.block.IceLanternBlock;
-import pantz.enhanced_nature.common.block.PalmSaplingBlock;
-import pantz.enhanced_nature.common.block.SlimeBulbBlock;
+import pantz.enhanced_nature.common.block.*;
 import pantz.enhanced_nature.core.EnhancedNature;
 import pantz.enhanced_nature.core.other.ENConstants;
 import pantz.enhanced_nature.core.other.ENProperties;
@@ -138,7 +135,7 @@ public class ENBlocks {
     public static final DeferredBlock<Block> SLIME_BULB = BLOCKS.createBlock("slime_bulb", () -> new SlimeBulbBlock(ENProperties.SLIME_BULB));
 
     // Peat
-    public static final DeferredBlock<Block> PEAT = BLOCKS.createBlock("peat", () -> new MudBlock(ENProperties.PEAT));
+    public static final DeferredBlock<Block> PEAT = BLOCKS.createBlock("peat", () -> new PeatBlock(ENProperties.PEAT));
     public static final DeferredBlock<Block> DRIED_PEAT = BLOCKS.createBlock("dried_peat", () -> new Block(ENProperties.DRIED_PEAT));
 
     public static final DeferredBlock<Block> PEAT_BRICKS = BLOCKS.createBlock("peat_bricks", () -> new Block(ENProperties.DRIED_PEAT));
@@ -194,6 +191,7 @@ public class ENBlocks {
                 .addItemsBefore(of(Blocks.DIORITE), BLUE_GRANITE, BLUE_GRANITE_STAIRS, BLUE_GRANITE_SLAB, BLUE_GRANITE_WALL, POLISHED_BLUE_GRANITE, POLISHED_BLUE_GRANITE_STAIRS, POLISHED_BLUE_GRANITE_SLAB)
                 .addItemsBefore(modLoaded(Blocks.DIORITE), POLISHED_BLUE_GRANITE_WALL, CHISELED_POLISHED_BLUE_GRANITE, BLUE_GRANITE_BRICKS, BLUE_GRANITE_BRICK_STAIRS, BLUE_GRANITE_BRICK_SLAB, BLUE_GRANITE_BRICK_WALL, BLUE_GRANITE_PILLAR, BLUE_GRANITE_TILES, BLUE_GRANITE_TILE_STAIRS, BLUE_GRANITE_TILE_SLAB, BLUE_GRANITE_TILE_WALL)
                 .addItemsBefore(of(Blocks.SEA_LANTERN), SLIME_BRICKS, SLIME_BRICK_STAIRS, SLIME_BRICK_SLAB, SLIME_BRICK_WALL, CHISELED_SLIME_BRICKS, SLIME_TILES, SLIME_TILE_STAIRS, SLIME_TILE_SLAB, SLIME_TILE_WALL)
+                .addItemsBefore(of(Blocks.SANDSTONE), DRIED_PEAT, PEAT_BRICKS, PEAT_BRICK_STAIRS, PEAT_BRICK_SLAB, PEAT_BRICK_WALL, PEAT_TILES, PEAT_TILE_STAIRS, PEAT_TILE_SLAB, PEAT_TILE_WALL)
 
                 .tab(NATURAL_BLOCKS)
                 .addItemsBefore(of(Blocks.CALCITE), LIMESTONE)
@@ -203,6 +201,7 @@ public class ENBlocks {
                 .addItemsBefore(modLoaded(Blocks.AZALEA_LEAVES, ENConstants.WOODWORKS), PALM_LEAF_PILE)
                 .addItemsBefore(of(Blocks.AZALEA), PALM_SAPLING)
                 .addItemsAfter(of(Blocks.BLUE_ICE), PERMAFROST)
+                .addItemsAfter(of(Blocks.MUD), PEAT)
 
                 .tab(FUNCTIONAL_BLOCKS)
                 .addItemsBefore(of(Blocks.BAMBOO_SIGN), PALM_SIGNS.getFirst(), PALM_HANGING_SIGNS.getFirst())

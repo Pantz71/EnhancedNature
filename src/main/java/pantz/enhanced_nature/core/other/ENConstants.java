@@ -6,6 +6,7 @@ public class ENConstants {
     public static final String CAVERNS_AND_CHASMS = "caverns_and_chasms";
     public static final String WOODWORKS = "woodworks";
     public static final String BOATLOAD = "boatload";
+    public static final String ENVIRONMENTAL = "environmental";
 
     public static final ResourceLocation BAMBOO_LADDER = ResourceLocation.fromNamespaceAndPath("woodworks", "bamboo_ladder");
     public static final ResourceLocation BAMBOO_BEEHIVE = ResourceLocation.fromNamespaceAndPath("woodworks", "bamboo_beehive");
