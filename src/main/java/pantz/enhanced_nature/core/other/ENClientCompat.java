@@ -32,12 +32,12 @@ public class ENClientCompat {
 
     @SubscribeEvent
     public static void registerBlockColors(RegisterColorHandlersEvent.Block event) {
-        event.register((state, level, pos, index) -> level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) : FoliageColor.get(0.5D, 1.0D),
+        event.register((state, level, pos, index) -> level != null && pos != null ? BiomeColors.getAverageGrassColor(level, pos) : FoliageColor.get(1.0f, 0.3f),
                 PALM_LEAVES.get(), PALM_LEAF_PILE.get());
     }
 
     @SubscribeEvent
     public static void registerItemColor(RegisterColorHandlersEvent.Item event) {
-        event.register((item, index) -> 7313728, PALM_LEAVES.get(), PALM_LEAF_PILE.get());
+        event.register((item, index) -> FoliageColor.get(1.0f, 0.3f), PALM_LEAVES.get(), PALM_LEAF_PILE.get());
     }
 }
