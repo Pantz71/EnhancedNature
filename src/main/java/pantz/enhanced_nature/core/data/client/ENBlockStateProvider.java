@@ -64,6 +64,8 @@ public class ENBlockStateProvider extends BlueprintBlockStateProvider {
         this.blockFamily(ENBlockFamilies.SLIME_TILES_FAMILY);
         this.generatedItem(SLIME_BULB.asItem(), "item");
 
+        this.block(PEAT);
+        this.block(DRIED_PEAT);
         this.blockFamily(ENBlockFamilies.PEAT_BRICKS_FAMILY);
         this.blockFamily(ENBlockFamilies.PEAT_TILES_FAMILY);
 
