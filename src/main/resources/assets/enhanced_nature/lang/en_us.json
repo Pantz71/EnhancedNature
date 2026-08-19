@@ -131,5 +131,7 @@
   "block.enhanced_nature.permafrost_brick_stairs": "Permafrost Brick Stairs",
   "block.enhanced_nature.permafrost_brick_slab": "Permafrost Brick Slab",
   "block.enhanced_nature.permafrost_brick_wall": "Permafrost Brick Wall",
-  "block.enhanced_nature.chiseled_permafrost_bricks": "Chiseled Permafrost Bricks"
+  "block.enhanced_nature.chiseled_permafrost_bricks": "Chiseled Permafrost Bricks",
+
+  "subtitles.enhanced_nature.block.peat.dries": "Peat dries"
 }
