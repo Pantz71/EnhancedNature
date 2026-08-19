@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_peat_tiles": {
+    "has_dried_peat": {
       "conditions": {
         "items": [
           {
-            "items": "enhanced_nature:peat_tiles"
+            "items": "enhanced_nature:dried_peat"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_peat_tiles"
+      "has_dried_peat"
     ]
   ],
   "rewards": {

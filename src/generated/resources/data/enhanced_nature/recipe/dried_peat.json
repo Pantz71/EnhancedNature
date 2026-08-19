@@ -1,17 +1,13 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "category": "building",
-  "key": {
-    "S": {
-      "item": "enhanced_nature:peat_bricks"
-    }
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "enhanced_nature:peat"
   },
-  "pattern": [
-    "SS",
-    "SS"
-  ],
   "result": {
-    "count": 4,
+    "count": 1,
     "id": "enhanced_nature:dried_peat"
   }
 }

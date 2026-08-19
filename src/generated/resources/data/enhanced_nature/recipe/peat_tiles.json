@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "S": {
-      "item": "enhanced_nature:dried_peat"
+      "item": "enhanced_nature:peat_bricks"
     }
   },
   "pattern": [
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 4,
-    "id": "enhanced_nature:peat_bricks"
+    "id": "enhanced_nature:peat_tiles"
   }
 }

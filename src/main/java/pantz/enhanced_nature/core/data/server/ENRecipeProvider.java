@@ -131,11 +131,11 @@ public class ENRecipeProvider extends BlueprintRecipeProvider {
         stonecutterRecipes(output, ENBlockFamilies.SLIME_TILES_FAMILY, SLIME_BRICKS.get(), SLIME_TILES.get());
 
         // Peat
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(PEAT.get()), BUILDING_BLOCKS, DRIED_PEAT.get(), 0.1F, 200);
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(PEAT.get()), BUILDING_BLOCKS, DRIED_PEAT.get(), 0.1F, 200).unlockedBy(getHasName(PEAT.get()), has(PEAT.get())).save(output);
         ClayworksRecipeProvider.bakingRecipe(output, BUILDING_BLOCKS, PEAT.get(), DRIED_PEAT.get(), 0.1F, 100, EnhancedNature.MOD_ID);
 
-        polished(output, BUILDING_BLOCKS, DRIED_PEAT.get(), PEAT_BRICKS.get());
-        polished(output, BUILDING_BLOCKS, PEAT_BRICKS.get(), PEAT_TILES.get());
+        polished(output, BUILDING_BLOCKS, PEAT_BRICKS.get(), DRIED_PEAT.get());
+        polished(output, BUILDING_BLOCKS, PEAT_TILES.get(), PEAT_BRICKS.get());
 
         generateRecipes(output, ENBlockFamilies.PEAT_BRICKS_FAMILY);
         generateRecipes(output, ENBlockFamilies.PEAT_TILES_FAMILY);
